@@ -74,10 +74,10 @@ p, ul { margin: 0 0 1em; }
 
 /* --- Homepage tool cards --- */
 .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; list-style: none; padding: 0; margin: 0; }
-.card { display: block; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; transition: transform .08s ease, border-color .08s ease; height: 110px; box-sizing: border-box; overflow: hidden; }
+.card { display: block; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; transition: transform .08s ease, border-color .08s ease; height: 150px; box-sizing: border-box; overflow: hidden; }
 .card:hover { text-decoration: none; transform: translateY(-2px); border-color: var(--accent); }
 .card .t { font-weight: 600; color: var(--fg); }
-.card .d { color: var(--muted); font-size: .92rem; margin-top: 4px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.card .d { color: var(--muted); font-size: .92rem; margin-top: 4px; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
 
 /* --- Category cards --- */
 .cat-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; list-style: none; padding: 0; margin: 0; }
