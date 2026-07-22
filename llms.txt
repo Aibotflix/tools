@@ -2,7 +2,7 @@
 
 > Free online tools that run in your browser. Nothing to install, no sign-up.
 
-Boring Tools is a collection of 18 browser-based utilities for developers, writers, and anyone who needs a quick conversion or generation task done. No data is sent to any server.
+Boring Tools is a collection of 21 browser-based utilities for developers, writers, and anyone who needs a quick conversion or generation task done. No data is sent to any server.
 
 ## Tools
 
@@ -24,6 +24,8 @@ Boring Tools is a collection of 18 browser-based utilities for developers, write
 - Regex Tester & Debugger: Test regular expressions with live match highlighting and group capture details.
 - CSV to JSON Converter: Convert between CSV and JSON formats instantly. Handles quoted fields.
 - QR Code Generator: Generate QR codes for any URL or text. Choose size, colors, error correction. Download PNG or SVG.
+- Cron Expression Generator: Build cron expressions from dropdowns and presets. See the next 5 run times before you commit.
+- Protobuf Decoder: Decode protobuf binary data (hex or base64) into a readable tree structure showing field numbers, wire types, and values.
 
 ### Converters
 - Unit Converter: Convert length (miles, km, meters, feet), weight (kg, lbs, grams, ounces) and temperature (Celsius, Fahrenheit, Kelvin).
@@ -31,6 +33,7 @@ Boring Tools is a collection of 18 browser-based utilities for developers, write
 ### Security & Privacy
 - Password Generator: Generate strong random passwords with configurable length and character sets using crypto.getRandomValues.
 - Hash Generator: Generate MD5, SHA-1, SHA-256 and SHA-512 hashes from any text.
+- HMAC Generator: Generate HMAC-SHA256 and HMAC-SHA512 signatures from a message and secret key.
 
 ## How it works
 

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Protobuf Decoder | Boring Tools</title>
+<meta name="description" content="Decode protobuf binary data into a readable tree. Paste hex or base64, see the wire format.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://Aibotflix.github.io/tools/protobuf-decoder/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Protobuf Decoder | Boring Tools">
+<meta property="og:description" content="Decode protobuf binary data into a readable tree.">
+<meta property="og:url" content="https://Aibotflix.github.io/tools/protobuf-decoder/">
+<meta property="og:image" content="https://Aibotflix.github.io/tools/social-card.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Protobuf Decoder | Boring Tools">
+<meta name="twitter:description" content="Decode protobuf binary data into a readable tree.">
+<meta name="twitter:image" content="https://Aibotflix.github.io/tools/social-card.svg">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{ "@context":"https://schema.org","@type":"WebApplication","name":"Protobuf Decoder","applicationCategory":"UtilitiesApplication","url":"https://Aibotflix.github.io/tools/protobuf-decoder/","description":"Decode protobuf binary data into a readable tree structure. Paste hex or base64 input.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"browserRequires":"Requires JavaScript" }
+</script>
+<script type="application/ld+json">
+{ "@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+  {"@type":"ListItem","position":1,"name":"Home","item":"https://Aibotflix.github.io/tools/"},
+  {"@type":"ListItem","position":2,"name":"Developer Tools","item":"https://Aibotflix.github.io/tools/categories/?cat=developer-tools"},
+  {"@type":"ListItem","position":3,"name":"Protobuf Decoder"}
+]}
+</script>
+<script type="application/ld+json">
+{ "@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"What is Protocol Buffers?","acceptedAnswer":{"@type":"Answer","text":"Protocol Buffers (protobuf) is a binary serialization format developed by Google. It's compact and fast, used in gRPC, config files, network protocols, and more. Unlike JSON, it's not self-describing — you need a schema to fully interpret the data."}},
+  {"@type":"Question","name":"What input format does this accept?","acceptedAnswer":{"@type":"Answer","text":"Paste hex-encoded data (with or without spaces/0x prefix) or base64-encoded data. The tool auto-detects the format. You can grab hex dumps from Wireshark, network logs, or binary file exports."}},
+  {"@type":"Question","name":"What do the wire types mean?","acceptedAnswer":{"@type":"Answer","text":"Wire type 0 is a varint (variable-length integer). Wire type 1 is a 64-bit fixed value. Wire type 2 is length-delimited (strings, bytes, embedded messages). Wire type 5 is a 32-bit fixed value. Types 3 and 4 are deprecated group markers."}}
+]}
+</script>
+</head>
+<body>
+<header id="site-header"></header>
+<main class="container">
+  <div id="breadcrumbs"></div>
+  <h1>Protobuf Decoder</h1>
+  <p class="lead">Decode protobuf binary data into a readable tree. Paste hex or base64 — the tool auto-detects the format.</p>
+  <div class="tool">
+    <div class="field">
+      <label for="input">Encoded data (hex or base64)</label>
+      <textarea id="input" placeholder="Paste hex (e.g. 0a0b68656c6c6f20776f726c64) or base64 data…&#10;Auto-detects format." style="min-height:100px;font-family:monospace"></textarea>
+    </div>
+    <div class="field">
+      <label for="inputFormat">Input format</label>
+      <select id="inputFormat">
+        <option value="auto" selected>Auto-detect</option>
+        <option value="hex">Hex</option>
+        <option value="base64">Base64</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Decoded output</label>
+      <pre id="output" style="background:var(--bg-alt);padding:16px;border-radius:8px;overflow-x:auto;min-height:60px;font-size:.85rem;white-space:pre-wrap;word-break:break-all"></pre>
+    </div>
+    <div class="field">
+      <label>Field summary</label>
+      <div id="summary" style="font-size:.85rem;color:var(--muted)"></div>
+    </div>
+    <div class="row tight">
+      <button id="copyOutput" type="button">Copy output</button>
+    </div>
+    <div class="status" id="status"></div>
+  </div>
+  <h2>What is Protocol Buffers?</h2>
+  <p>Protocol Buffers (protobuf) is a binary serialization format developed by Google. It's compact and fast, used in gRPC, config files, network protocols, and more. Unlike JSON, it's not self-describing — you need a schema to fully interpret the data.</p>
+  <h2>What input format does this accept?</h2>
+  <p>Paste hex-encoded data (with or without spaces/0x prefix) or base64-encoded data. The tool auto-detects the format. You can grab hex dumps from Wireshark, network logs, or binary file exports.</p>
+  <h2>What do the wire types mean?</h2>
+  <p>Wire type 0 is a varint (variable-length integer). Wire type 1 is a 64-bit fixed value. Wire type 2 is length-delimited (strings, bytes, embedded messages). Wire type 5 is a 32-bit fixed value. Types 3 and 4 are deprecated group markers.</p>
+  <div id="related-tools"></div>
+</main>
+<footer id="site-footer"></footer>
+<script src="../js/app.js"></script>
+<script src="script.js"></script>
+<script>BoringTools.injectRelatedTools("protobuf-decoder");</script>
+</body>
+</html>

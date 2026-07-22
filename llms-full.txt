@@ -4,7 +4,7 @@
 
 ## What is Boring Tools?
 
-Boring Tools is a collection of 18 free, browser-based utilities for developers, writers, students, and anyone who needs a quick conversion, generation, or transformation task done. No data is sent to any server, no cookies are set, no analytics are collected.
+Boring Tools is a collection of 21 free, browser-based utilities for developers, writers, students, and anyone who needs a quick conversion, generation, or transformation task done. No data is sent to any server, no cookies are set, no analytics are collected.
 
 The site is hosted on GitHub Pages and the source code is open.
 
@@ -34,6 +34,8 @@ Everything runs locally in your browser. Nothing you type is stored or sent anyw
 - **Regex Tester & Debugger**: Test regular expressions with live match highlighting. Supports flags (g, i, m, s). Shows capture groups and match details.
 - **CSV to JSON Converter**: Convert between CSV and JSON formats. Handles quoted fields, escaped quotes, and commas within values. First row is used as object keys.
 - **QR Code Generator**: Generate QR codes for any URL, text or data. Choose size (128–1024px), error correction level (L/M/Q/H), foreground and background colors. Download as PNG or SVG.
+- **Cron Expression Generator**: Build cron expressions interactively using dropdowns for each field (minute, hour, day of month, month, day of week). Supports every, specific, every-N, range, and list modes. Includes common presets (every minute, daily 9 AM, weekdays, etc.). Shows a plain-English description and the next 5 scheduled run times so you can verify the expression before using it.
+- **Protobuf Decoder**: Decode Protocol Buffers binary data into a readable tree structure. Accepts hex-encoded or base64-encoded input (auto-detected). Shows field numbers, wire types (varint, 64-bit, length-delimited, 32-bit), and decoded values including strings, integers, and nested messages. Handles repeated fields, nested structures, and truncated data gracefully.
 
 ### Converters
 
@@ -43,6 +45,7 @@ Everything runs locally in your browser. Nothing you type is stored or sent anyw
 
 - **Password Generator**: Generate strong random passwords with configurable length (4–128) and character sets (uppercase, lowercase, digits, symbols). Uses `crypto.getRandomValues`. Shows estimated entropy.
 - **Hash Generator**: Generate MD5, SHA-1, SHA-256 and SHA-512 hashes from any text. SHA hashes use the Web Crypto API (`crypto.subtle.digest`). MD5 is implemented in pure JavaScript. Click any hash to copy.
+- **HMAC Generator**: Generate HMAC-SHA256 and HMAC-SHA512 signatures from a message and secret key using the Web Crypto API (`crypto.subtle.sign`). Supports hex (lowercase/uppercase) and Base64 output encoding. Useful for verifying API request authenticity, validating webhook payloads, and signing data.
 
 ## Technical Details
 
@@ -56,9 +59,9 @@ Everything runs locally in your browser. Nothing you type is stored or sent anyw
 ## Categories
 
 - **Text & Writing**: word-counter, case-converter, lorem-ipsum
-- **Developer Tools**: json-formatter, base64, uuid-generator, timestamp-converter, url-encoder, binary-converter, jwt-decoder, rot13, markdown-preview, regex-tester, csv-json, qr-code
+- **Developer Tools**: json-formatter, base64, uuid-generator, timestamp-converter, url-encoder, binary-converter, jwt-decoder, rot13, markdown-preview, regex-tester, csv-json, qr-code, cron-expression-generator, protobuf-decoder
 - **Converters**: unit-converter
-- **Security & Privacy**: password-generator, hash-generator
+- **Security & Privacy**: password-generator, hash-generator, hmac-generator
 
 ## Contact
 
