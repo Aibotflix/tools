@@ -1,0 +1,65 @@
+# Boring Tools — Full Documentation
+
+> Free online tools that run in your browser. Nothing to install, no sign-up.
+
+## What is Boring Tools?
+
+Boring Tools is a collection of 18 free, browser-based utilities for developers, writers, students, and anyone who needs a quick conversion, generation, or transformation task done. No data is sent to any server, no cookies are set, no analytics are collected.
+
+The site is hosted on GitHub Pages and the source code is open.
+
+## How it works
+
+Everything runs locally in your browser. Nothing you type is stored or sent anywhere.
+
+## Tools
+
+### Text & Writing
+
+- **Word Counter**: Count characters, words, sentences, lines and reading time live as you type. Reading time assumes 200 words per minute; speaking time assumes 130.
+- **Case Converter**: Convert text to UPPERCASE, lowercase, Title Case, Sentence case, camelCase, PascalCase, snake_case, kebab-case and CONSTANT_CASE. All conversions happen instantly.
+- **Lorem Ipsum Generator**: Generate 1–20 paragraphs of classic Lorem Ipsum placeholder text. Option to start with "Lorem ipsum dolor sit amet".
+
+### Developer Tools
+
+- **JSON Formatter**: Beautify, minify and validate JSON with clear error messages. Catches missing commas, unmatched brackets, trailing commas, and unquoted keys.
+- **Base64 Encode / Decode**: Convert text to and from Base64 with full UTF-8 support. Handles emoji, CJK characters and accented characters correctly by encoding through the UTF-8 byte stream first.
+- **UUID Generator**: Generate random RFC 4122 v4 UUIDs using `window.crypto.getRandomValues` (cryptographically secure). Supports uppercase and brace-wrapped formats. Up to 500 at a time.
+- **Timestamp Converter**: Convert Unix timestamps to human-readable dates and back. Auto-detects seconds vs milliseconds. Shows dates in your local timezone and UTC.
+- **URL Encoder & Decoder**: Encode and decode URLs with full UTF-8 support. Includes URL encoding, URI component encoding, and handles international characters and emoji.
+- **Binary Decimal Hex Converter**: Convert between binary (base 2), decimal (base 10), hexadecimal (base 16) and octal (base 8). Type in any field — all bases update simultaneously.
+- **JWT Decoder**: Decode JSON Web Tokens instantly. Shows header (algorithm, type), payload (claims, expiration), and encoded signature. Client-side only — no token is sent anywhere.
+- **Rot13 & Caesar Cipher**: Encode and decode Rot13, Caesar cipher with configurable shift (1–25), and Atbash cipher.
+- **Markdown Preview Editor**: Write Markdown on the left, see live rendered preview on the right. Supports headings, bold, italic, links, images, lists, code blocks, blockquotes, tables, and task lists. Download as .md or copy HTML.
+- **Regex Tester & Debugger**: Test regular expressions with live match highlighting. Supports flags (g, i, m, s). Shows capture groups and match details.
+- **CSV to JSON Converter**: Convert between CSV and JSON formats. Handles quoted fields, escaped quotes, and commas within values. First row is used as object keys.
+- **QR Code Generator**: Generate QR codes for any URL, text or data. Choose size (128–1024px), error correction level (L/M/Q/H), foreground and background colors. Download as PNG or SVG.
+
+### Converters
+
+- **Unit Converter**: Convert length (meter, kilometer, centimeter, millimeter, mile, yard, foot, inch, nautical mile), weight (gram, kilogram, milligram, microgram, pound, ounce, stone, tonne) and temperature (Celsius, Fahrenheit, Kelvin). Uses exact conversion factors through a single base unit.
+
+### Security & Privacy
+
+- **Password Generator**: Generate strong random passwords with configurable length (4–128) and character sets (uppercase, lowercase, digits, symbols). Uses `crypto.getRandomValues`. Shows estimated entropy.
+- **Hash Generator**: Generate MD5, SHA-1, SHA-256 and SHA-512 hashes from any text. SHA hashes use the Web Crypto API (`crypto.subtle.digest`). MD5 is implemented in pure JavaScript. Click any hash to copy.
+
+## Technical Details
+
+- Static HTML, CSS, and JavaScript — no build step, no framework
+- Hosted on GitHub Pages
+- All tools use native browser APIs (Web Crypto API, TextEncoder, etc.)
+- No third-party scripts except CDN libraries for QR code generation and Markdown rendering
+- Responsive design — works on mobile and desktop
+- Dark mode support via `prefers-color-scheme`
+
+## Categories
+
+- **Text & Writing**: word-counter, case-converter, lorem-ipsum
+- **Developer Tools**: json-formatter, base64, uuid-generator, timestamp-converter, url-encoder, binary-converter, jwt-decoder, rot13, markdown-preview, regex-tester, csv-json, qr-code
+- **Converters**: unit-converter
+- **Security & Privacy**: password-generator, hash-generator
+
+## Contact
+
+Report bugs or request features at https://github.com/Aibotflix/tools/issues

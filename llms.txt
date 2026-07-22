@@ -1,0 +1,41 @@
+# Boring Tools
+
+> Free online tools that run in your browser. Nothing to install, no sign-up.
+
+Boring Tools is a collection of 18 browser-based utilities for developers, writers, and anyone who needs a quick conversion or generation task done. No data is sent to any server.
+
+## Tools
+
+### Text & Writing
+- Word Counter: Count characters, words, sentences, lines and reading time live as you type.
+- Case Converter: Convert text to UPPERCASE, lowercase, Title Case, camelCase, snake_case, kebab-case and more.
+- Lorem Ipsum Generator: Generate 1-20 paragraphs of classic Lorem Ipsum placeholder text.
+
+### Developer Tools
+- JSON Formatter: Beautify, minify and validate JSON with clear error messages.
+- Base64 Encode / Decode: Convert text to and from Base64 with full UTF-8 support for emoji and accented characters.
+- UUID Generator: Generate random RFC 4122 v4 UUIDs using a cryptographically secure RNG.
+- Timestamp Converter: Convert Unix timestamps to dates and back. Auto-detect seconds vs milliseconds.
+- URL Encoder & Decoder: Encode and decode URLs with full UTF-8 support for international characters.
+- Binary Decimal Hex Converter: Convert between binary, decimal, hexadecimal and octal instantly.
+- JWT Decoder: Decode JWT tokens instantly — see header, payload and expiration.
+- Rot13 & Caesar Cipher: Encode and decode Rot13, Caesar cipher with custom shift, and Atbash cipher.
+- Markdown Preview Editor: Write Markdown and see a live rendered preview. Split-pane editor.
+- Regex Tester & Debugger: Test regular expressions with live match highlighting and group capture details.
+- CSV to JSON Converter: Convert between CSV and JSON formats instantly. Handles quoted fields.
+- QR Code Generator: Generate QR codes for any URL or text. Choose size, colors, error correction. Download PNG or SVG.
+
+### Converters
+- Unit Converter: Convert length (miles, km, meters, feet), weight (kg, lbs, grams, ounces) and temperature (Celsius, Fahrenheit, Kelvin).
+
+### Security & Privacy
+- Password Generator: Generate strong random passwords with configurable length and character sets using crypto.getRandomValues.
+- Hash Generator: Generate MD5, SHA-1, SHA-256 and SHA-512 hashes from any text.
+
+## How it works
+
+Everything runs locally in your browser. No cookies, no analytics, no tracking. The site is hosted on GitHub Pages and the source code is open.
+
+## Contact
+
+Report bugs or request features at https://github.com/Aibotflix/tools/issues

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rot13 & Caesar Cipher | Boring Tools</title>
+<meta name="description" content="Encode and decode Rot13, Caesar cipher with custom shift, and Atbash cipher.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://Aibotflix.github.io/tools/rot13/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Rot13 & Caesar Cipher | Boring Tools">
+<meta property="og:description" content="Encode and decode Rot13, Caesar cipher and Atbash.">
+<meta property="og:url" content="https://Aibotflix.github.io/tools/rot13/">
+<meta property="og:image" content="https://Aibotflix.github.io/tools/social-card.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Rot13 & Caesar Cipher | Boring Tools">
+<meta name="twitter:description" content="Encode and decode Rot13, Caesar cipher and Atbash.">
+<meta name="twitter:image" content="https://Aibotflix.github.io/tools/social-card.svg">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{ "@context":"https://schema.org","@type":"WebApplication","name":"Rot13 & Caesar Cipher","applicationCategory":"UtilitiesApplication","url":"https://Aibotflix.github.io/tools/rot13/","description":"Encode and decode Rot13, Caesar cipher and Atbash cipher.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"browserRequires":"Requires JavaScript" }
+</script>
+<script type="application/ld+json">
+{ "@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+  {"@type":"ListItem","position":1,"name":"Home","item":"https://Aibotflix.github.io/tools/"},
+  {"@type":"ListItem","position":2,"name":"Developer Tools","item":"https://Aibotflix.github.io/tools/categories/developer-tools.html"},
+  {"@type":"ListItem","position":3,"name":"Rot13 & Caesar Cipher"}
+]}
+</script>
+<script type="application/ld+json">
+{ "@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"What is Rot13?","acceptedAnswer":{"@type":"Answer","text":"Rot13 (rotate by 13) is a simple substitution cipher that shifts each letter 13 positions in the alphabet. Applying Rot13 twice returns the original text. It is commonly used to hide spoilers and puzzle answers online."}},
+  {"@type":"Question","name":"What is a Caesar cipher?","acceptedAnswer":{"@type":"Answer","text":"A Caesar cipher shifts each letter by a fixed number of positions in the alphabet. Rot13 is a Caesar cipher with shift 13. This tool lets you use any shift from 1 to 25."}},
+  {"@type":"Question","name":"What is Atbash?","acceptedAnswer":{"@type":"Answer","text":"Atbash reverses the alphabet: A becomes Z, B becomes Y, and so on. It is one of the oldest known substitution ciphers, originating from the Hebrew alphabet."}}
+]}
+</script>
+</head>
+<body>
+<header id="site-header"></header>
+<main class="container">
+  <div id="breadcrumbs"></div>
+  <h1>Rot13 Decoder & Caesar Cipher</h1>
+  <p class="lead">Encode and decode Rot13, Caesar cipher with custom shift, and Atbash cipher.</p>
+  <div class="tool">
+    <div class="row tight" style="margin-bottom:10px">
+      <button data-act="rot13" type="button">Rot13</button>
+      <button data-act="atbash" class="secondary" type="button">Atbash</button>
+      <button id="copy" class="secondary" type="button">Copy result</button>
+    </div>
+    <div class="field">
+      <label for="shift">Caesar shift: <b id="shiftVal">3</b></label>
+      <input id="shift" type="range" min="1" max="25" value="3">
+    </div>
+    <button data-act="caesar" type="button" style="margin-bottom:14px">Apply Caesar (shift <span id="caesarShiftLabel">3</span>)</button>
+    <textarea id="in" placeholder="Type text to encode/decode…"></textarea>
+    <textarea id="out" readonly style="margin-top:10px" placeholder="Result appears here…"></textarea>
+    <div class="status" id="status"></div>
+  </div>
+  <h2>What is Rot13?</h2>
+  <p><strong>Rot13</strong> shifts each letter by 13 positions. Since the alphabet has 26 letters, applying it twice returns the original text. It is commonly used to hide spoilers and puzzle answers online.</p>
+  <h2>What is a Caesar cipher?</h2>
+  <p>A Caesar cipher shifts each letter by a fixed number of positions in the alphabet. Rot13 is a Caesar cipher with shift 13. This tool lets you use any shift from 1 to 25.</p>
+  <h2>What is Atbash?</h2>
+  <p>Atbash maps each letter to its reverse: A↔Z, B↔Y, C↔X, etc. It is one of the oldest known substitution ciphers, originating from the Hebrew alphabet.</p>
+  <div id="related-tools"></div>
+</main>
+<footer id="site-footer"></footer>
+<script src="../js/app.js"></script>
+<script src="script.js"></script>
+<script>BoringTools.injectRelatedTools("rot13");</script>
+</body>
+</html>

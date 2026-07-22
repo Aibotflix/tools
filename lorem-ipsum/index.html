@@ -3,21 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lorem Ipsum Generator — Placeholder Text | Boring Tools</title>
-<meta name="description" content="Generate Lorem Ipsum placeholder paragraphs of dummy text for your designs and layouts. Choose how many paragraphs. Runs in your browser.">
+<title>Lorem Ipsum Generator | Boring Tools</title>
+<meta name="description" content="Generate Lorem Ipsum placeholder paragraphs for your designs and layouts.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://Aibotflix.github.io/tools/lorem-ipsum/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Lorem Ipsum Generator — Placeholder Text">
-<meta property="og:description" content="Generate Lorem Ipsum placeholder paragraphs for your layouts. Runs in your browser.">
+<meta property="og:title" content="Lorem Ipsum Generator | Boring Tools">
+<meta property="og:description" content="Generate Lorem Ipsum placeholder paragraphs for your layouts.">
 <meta property="og:url" content="https://Aibotflix.github.io/tools/lorem-ipsum/">
+<meta property="og:image" content="https://Aibotflix.github.io/tools/social-card.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lorem Ipsum Generator | Boring Tools">
+<meta name="twitter:description" content="Generate Lorem Ipsum placeholder paragraphs for your layouts.">
+<meta name="twitter:image" content="https://Aibotflix.github.io/tools/social-card.svg">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../site.webmanifest">
 <link rel="stylesheet" href="../style.css">
-<!-- TODO: ad slot — drop AdSense <ins> here once approved -->
+<script type="application/ld+json">
+{ "@context":"https://schema.org","@type":"WebApplication","name":"Lorem Ipsum Generator","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","url":"https://Aibotflix.github.io/tools/lorem-ipsum/","description":"Generate placeholder paragraphs of Lorem Ipsum dummy text for your layouts. Runs in your browser.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"browserRequirements":"Requires JavaScript" }
+</script>
+<script type="application/ld+json">
+{ "@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+  {"@type":"ListItem","position":1,"name":"Home","item":"https://Aibotflix.github.io/tools/"},
+  {"@type":"ListItem","position":2,"name":"Text & Writing","item":"https://Aibotflix.github.io/tools/categories/text-writing.html"},
+  {"@type":"ListItem","position":3,"name":"Lorem Ipsum Generator"}
+]}
+</script>
+<script type="application/ld+json">
+{ "@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"What is Lorem Ipsum?","acceptedAnswer":{"@type":"Answer","text":"Lorem Ipsum is scrambled Latin derived from Cicero's de Finibus, used by typesetters since the 1500s as dummy filler. It looks like real text but does not distract the reader with meaning."}},
+  {"@type":"Question","name":"How many paragraphs can I generate?","acceptedAnswer":{"@type":"Answer","text":"You can generate between 1 and 20 paragraphs at once. Each paragraph contains 3 to 6 sentences of randomized Latin text."}}
+]}
+</script>
 </head>
 <body>
-<header class="site"><div class="container"><a class="brand" href="../">Boring Tools</a><nav class="site"><a href="../about.html">About</a><a href="../privacy.html">Privacy</a></nav></div></header>
+<header id="site-header"></header>
 <main class="container">
-  <p class="crumb"><a href="../">Boring Tools</a> / Lorem Ipsum Generator</p>
+  <div id="breadcrumbs"></div>
   <h1>Lorem Ipsum Generator</h1>
   <p class="lead">Generate placeholder paragraphs of classic Lorem Ipsum dummy text for your layouts and mockups.</p>
   <div class="tool">
@@ -34,48 +56,13 @@
   </div>
   <h2>What is Lorem Ipsum?</h2>
   <p>Lorem Ipsum is scrambled Latin derived from Cicero's <em>de Finibus</em>, used by typesetters since the 1500s as dummy filler. Because it looks like real text but doesn't distract the reader with meaning, it's the standard placeholder for layout and design work.</p>
+  <h2>How many paragraphs can I generate?</h2>
+  <p>You can generate between 1 and 20 paragraphs at once. Each paragraph contains 3 to 6 sentences of randomized Latin text.</p>
+  <div id="related-tools"></div>
 </main>
-<footer class="site"><div class="container"><a href="../about.html">About</a><a href="../privacy.html">Privacy</a><span>© 2026 Boring Tools</span></div></footer>
-<script>
-(function () {
-  "use strict";
-  function $(id){ return document.getElementById(id); }
-  var words = ("lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam quis nostrud exercitation ullamco laboris nisi aliquip ex ea commodo consequat duis aute irure in reprehenderit voluptate velit esse cillum eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt culpa qui officia deserunt mollit anim id est laborum").split(" ");
-  var n = words.length;
-  function ri(max){ return Math.floor(Math.random() * max); }
-  function sentence(){
-    var len = 4 + ri(9), s = [], i;
-    for (i = 0; i < len; i++) s.push(words[ri(n)]);
-    var str = s.join(" ");
-    return str.charAt(0).toUpperCase() + str.slice(1) + ".";
-  }
-  function paragraph(){
-    var len = 3 + ri(4), s = [], i;
-    for (i = 0; i < len; i++) s.push(sentence());
-    var p = s.join(" ");
-    if ($("classic").checked) {
-      p = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " + p;
-    }
-    return p;
-  }
-  function generate(){
-    $("countVal").textContent = $("count").value;
-    var count = parseInt($("count").value, 10) || 1, ps = [], i;
-    for (i = 0; i < count; i++) ps.push(paragraph());
-    $("out").value = ps.join("\n\n");
-  }
-  $("count").addEventListener("input", generate);
-  $("classic").addEventListener("change", generate);
-  $("gen").addEventListener("click", generate);
-  $("copy").addEventListener("click", function () {
-    var v = $("out").value;
-    if (!v) return;
-    var b = $("copy");
-    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(v).then(function(){ b.textContent="Copied!"; setTimeout(function(){ b.textContent="Copy"; },1200); }, function(){ b.textContent="Copy failed"; });
-    else b.textContent = "Copy not supported";
-  });
-  generate();
-})();
-</script>
+<footer id="site-footer"></footer>
+<script src="../js/app.js"></script>
+<script src="script.js"></script>
+<script>BoringTools.injectRelatedTools("lorem-ipsum");</script>
 </body>
 </html>

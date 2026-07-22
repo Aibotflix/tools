@@ -1,0 +1,16 @@
+{
+  "name": "Boring Tools",
+  "short_name": "Boring Tools",
+  "description": "Free, fast online tools that run entirely in your browser.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2d6cdf",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

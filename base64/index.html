@@ -3,23 +3,45 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Base64 Encode & Decode — UTF-8 Safe | Boring Tools</title>
-<meta name="description" content="Encode text to Base64 or decode Base64 to text with full UTF-8 support. Runs entirely in your browser, no tracking, nothing sent to a server.">
+<title>Base64 Encode & Decode | Boring Tools</title>
+<meta name="description" content="Encode text to Base64 or decode Base64 to text with full UTF-8 support.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://Aibotflix.github.io/tools/base64/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Base64 Encode & Decode — UTF-8 Safe">
-<meta property="og:description" content="Encode and decode Base64 with full UTF-8 support. Runs in your browser, no tracking.">
+<meta property="og:title" content="Base64 Encode & Decode | Boring Tools">
+<meta property="og:description" content="Encode and decode Base64 with full UTF-8 support.">
 <meta property="og:url" content="https://Aibotflix.github.io/tools/base64/">
+<meta property="og:image" content="https://Aibotflix.github.io/tools/social-card.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Base64 Encode & Decode | Boring Tools">
+<meta name="twitter:description" content="Encode and decode Base64 with full UTF-8 support.">
+<meta name="twitter:image" content="https://Aibotflix.github.io/tools/social-card.svg">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../site.webmanifest">
 <link rel="stylesheet" href="../style.css">
-<!-- TODO: ad slot — drop AdSense <ins> here once approved -->
+<script type="application/ld+json">
+{ "@context":"https://schema.org","@type":"WebApplication","name":"Base64 Encode / Decode","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","url":"https://Aibotflix.github.io/tools/base64/","description":"Encode and decode Base64 with full UTF-8 support.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"browserRequirements":"Requires JavaScript" }
+</script>
+<script type="application/ld+json">
+{ "@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+  {"@type":"ListItem","position":1,"name":"Home","item":"https://Aibotflix.github.io/tools/"},
+  {"@type":"ListItem","position":2,"name":"Developer Tools","item":"https://Aibotflix.github.io/tools/categories/developer-tools.html"},
+  {"@type":"ListItem","position":3,"name":"Base64 Encode / Decode"}
+]}
+</script>
+<script type="application/ld+json">
+{ "@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"Why is UTF-8 support important for Base64?","acceptedAnswer":{"@type":"Answer","text":"Many naive Base64 tools use atob/btoa directly and mangle characters outside ASCII. This converter encodes through the UTF-8 byte stream first, so emoji, CJK characters and accents round-trip correctly."}},
+  {"@type":"Question","name":"Is Base64 encoding secure?","acceptedAnswer":{"@type":"Answer","text":"Base64 is an encoding, not encryption. It makes data safe to transmit over text-based protocols but does not hide or protect the content. Anyone can decode it."}}
+]}
+</script>
 </head>
 <body>
-<header class="site"><div class="container"><a class="brand" href="../">Boring Tools</a><nav class="site"><a href="../about.html">About</a><a href="../privacy.html">Privacy</a></nav></div></header>
+<header id="site-header"></header>
 <main class="container">
-  <p class="crumb"><a href="../">Boring Tools</a> / Base64 Encode & Decode</p>
+  <div id="breadcrumbs"></div>
   <h1>Base64 Encode & Decode</h1>
-  <p class="lead">Convert text to Base64 and back, with full UTF-8 support so emoji and accented characters survive. Nothing leaves your browser.</p>
+  <p class="lead">Convert text to Base64 and back, with full UTF-8 support so emoji and accented characters survive.</p>
   <div class="tool">
     <div class="row tight" style="margin-bottom:10px">
       <button data-do="encode" type="button">Encode →</button>
@@ -30,52 +52,13 @@
     <textarea id="out" readonly style="margin-top:10px" placeholder="Result appears here…"></textarea>
     <div class="status" id="status"></div>
   </div>
-  <h2>UTF-8 safe</h2>
+  <h2>Why is UTF-8 support important for Base64?</h2>
   <p>Many naive Base64 tools use <code>atob</code>/<code>btoa</code> directly and mangle any character outside ASCII. This converter encodes through the UTF-8 byte stream first, so emoji, CJK characters and accents round-trip correctly.</p>
+  <div id="related-tools"></div>
 </main>
-<footer class="site"><div class="container"><a href="../about.html">About</a><a href="../privacy.html">Privacy</a><span>© 2026 Boring Tools</span></div></footer>
-<script>
-(function () {
-  "use strict";
-  var $ = function (id) { return document.getElementById(id); };
-  var input = $("in"), output = $("out");
-  function setStatus(msg, isErr) {
-    var s = $("status"); s.textContent = msg || ""; s.className = "status" + (isErr ? " err" : msg ? " ok" : "");
-  }
-  function b64encode(str) {
-    var bytes = new TextEncoder().encode(str);
-    var bin = "";
-    for (var i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);
-    return btoa(bin);
-  }
-  function b64decode(str) {
-    var bin = atob(str.trim());
-    var bytes = new Uint8Array(bin.length);
-    for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
-    return new TextDecoder("utf-8", { fatal: false }).decode(bytes);
-  }
-  function run(doWhat) {
-    var v = input.value;
-    if (!v) { output.value = ""; setStatus(""); return; }
-    if (doWhat === "encode") {
-      try { output.value = b64encode(v); setStatus(""); }
-      catch (e) { output.value = ""; setStatus("Could not encode that input.", true); }
-    } else {
-      var clean = v.replace(/\s+/g, "");
-      try { output.value = b64decode(clean); setStatus(""); }
-      catch (e) { output.value = ""; setStatus("That isn't valid Base64.", true); }
-    }
-  }
-  document.querySelectorAll("[data-do]").forEach(function (b) {
-    b.addEventListener("click", function () { run(b.dataset.do); });
-  });
-  $("copy").addEventListener("click", function () {
-    var v = output.value;
-    if (!v) { setStatus("Nothing to copy yet.", true); return; }
-    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(v).then(function () { setStatus("Copied!"); }, function () { setStatus("Copy failed.", true); });
-    else setStatus("Copy not supported — select and copy manually.", true);
-  });
-})();
-</script>
+<footer id="site-footer"></footer>
+<script src="../js/app.js"></script>
+<script src="script.js"></script>
+<script>BoringTools.injectRelatedTools("base64");</script>
 </body>
 </html>

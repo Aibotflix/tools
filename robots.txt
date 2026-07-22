@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
 
-# TODO: replace Aibotflix and tools with your GitHub username and repo name
 Sitemap: https://Aibotflix.github.io/tools/sitemap.xml

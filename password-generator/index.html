@@ -3,26 +3,45 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Password Generator — Free, Secure, No Tracking | Boring Tools</title>
-<meta name="description" content="Generate strong, random passwords in your browser. Secure crypto RNG, no tracking, no data sent anywhere. Adjust length and character sets.">
+<title>Password Generator | Boring Tools</title>
+<meta name="description" content="Generate strong, random passwords with a secure crypto RNG. Adjust length and character sets.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://Aibotflix.github.io/tools/password-generator/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Password Generator — Free, Secure, No Tracking">
-<meta property="og:description" content="Generate strong random passwords in your browser. Secure crypto RNG, no tracking, nothing leaves your device.">
+<meta property="og:title" content="Password Generator | Boring Tools">
+<meta property="og:description" content="Strong, random passwords with a secure crypto RNG. Adjustable length and character sets.">
 <meta property="og:url" content="https://Aibotflix.github.io/tools/password-generator/">
+<meta property="og:image" content="https://Aibotflix.github.io/tools/social-card.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Password Generator | Boring Tools">
+<meta name="twitter:description" content="Strong, random passwords with a secure crypto RNG. Adjustable length and character sets.">
+<meta name="twitter:image" content="https://Aibotflix.github.io/tools/social-card.svg">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../site.webmanifest">
 <link rel="stylesheet" href="../style.css">
-<!-- TODO: ad slot — drop AdSense <ins> here once approved -->
 <script type="application/ld+json">
 { "@context":"https://schema.org","@type":"WebApplication","name":"Password Generator","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","url":"https://Aibotflix.github.io/tools/password-generator/","description":"Strong, random passwords generated in your browser using a secure crypto RNG. No data leaves your device.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"browserRequirements":"Requires JavaScript" }
 </script>
+<script type="application/ld+json">
+{ "@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+  {"@type":"ListItem","position":1,"name":"Home","item":"https://Aibotflix.github.io/tools/"},
+  {"@type":"ListItem","position":2,"name":"Security & Privacy","item":"https://Aibotflix.github.io/tools/categories/security-privacy.html"},
+  {"@type":"ListItem","position":3,"name":"Password Generator"}
+]}
+</script>
+<script type="application/ld+json">
+{ "@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"Is this password generator safe?","acceptedAnswer":{"@type":"Answer","text":"Yes. It uses your browser's window.crypto.getRandomValues — a cryptographically secure random number generator — not Math.random(), which is predictable. Generation happens entirely on your device; the password never touches a network."}},
+  {"@type":"Question","name":"How strong should my password be?","acceptedAnswer":{"@type":"Answer","text":"Aim for 80+ bits of entropy for important accounts. Length helps more than complexity — a long passphrase can be both stronger and easier to remember. The strength meter shows the estimated entropy of your current settings."}}
+]}
+</script>
 </head>
 <body>
-<header class="site"><div class="container"><a class="brand" href="../">Boring Tools</a><nav class="site"><a href="../about.html">About</a><a href="../privacy.html">Privacy</a></nav></div></header>
+<header id="site-header"></header>
 <main class="container">
-  <p class="crumb"><a href="../">Boring Tools</a> / Password Generator</p>
+  <div id="breadcrumbs"></div>
   <h1>Password Generator</h1>
-  <p class="lead">Strong, random passwords generated right in your browser. Nothing is sent anywhere — it works offline.</p>
+  <p class="lead">Strong, random passwords with a secure crypto RNG. Adjust length and character sets — offline, no account needed.</p>
 
   <div class="tool">
     <div class="output" id="out" aria-live="polite" aria-label="Generated password">—</div>
@@ -50,90 +69,16 @@
   </div>
 
   <h2>Is this password generator safe?</h2>
-  <p>Yes. It uses your browser's <code>window.crypto.getRandomValues</code> — a cryptographically secure random number generator — not <code>Math.random()</code>, which is predictable and unsafe for passwords. Every character is chosen with an unbiased algorithm, so no character is statistically favoured.</p>
-  <p>Generation happens entirely on your device. The password never touches a network, is never logged, and works with no internet connection.</p>
+  <p>Yes. It uses your browser's <code>window.crypto.getRandomValues</code> — a cryptographically secure random number generator — not <code>Math.random()</code>, which is predictable and unsafe for passwords. Every character is equally likely, with no bias toward any particular character.</p>
+  <p>Generation happens on your device. The password never touches a network and works offline.</p>
   <h2>How strong should my password be?</h2>
   <p>The strength meter shows roughly how many bits of entropy your settings produce. As a rule of thumb, aim for 80+ bits for important accounts. Length helps more than complexity — a long passphrase can be both stronger and easier to remember.</p>
+
+  <div id="related-tools"></div>
 </main>
-<footer class="site"><div class="container"><a href="../about.html">About</a><a href="../privacy.html">Privacy</a><span>© 2026 Boring Tools</span></div></footer>
-
-<script>
-(function () {
-  "use strict";
-  var $ = function (id) { return document.getElementById(id); };
-  var out = $("out"), bar = $("bar"), label = $("strengthLabel"),
-      lenEl = $("len"), lenVal = $("lenVal"), copyBtn = $("copy"), regenBtn = $("regen");
-  var sets = {
-    upper: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-    lower: "abcdefghijklmnopqrstuvwxyz",
-    digit: "0123456789",
-    sym: "!@#$%^&*-_=+?"
-  };
-  var u32 = new Uint32Array(1);
-  var current = "";
-
-  // Unbiased pick from [0, max): rejection-sample so the modulo wraps evenly.
-  function randInt(max) {
-    var limit = Math.floor(0x100000000 / max) * max, x;
-    do { crypto.getRandomValues(u32); x = u32[0]; } while (x >= limit);
-    return x % max;
-  }
-
-  function makePool() {
-    var p = "";
-    if ($("upper").checked) p += sets.upper;
-    if ($("lower").checked) p += sets.lower;
-    if ($("digit").checked) p += sets.digit;
-    if ($("sym").checked) p += sets.sym;
-    if ($("amb").checked) p = p.replace(/[lI1O0o]/g, "");
-    return p;
-  }
-
-  function grade(bits) {
-    var txt, col;
-    if (bits < 40) { txt = "Weak"; col = "#d64a4a"; }
-    else if (bits < 60) { txt = "Fair"; col = "#e08a2b"; }
-    else if (bits < 100) { txt = "Strong"; col = "#3aa757"; }
-    else { txt = "Very strong"; col = "#2d9d78"; }
-    bar.style.width = Math.min(100, bits / 128 * 100) + "%";
-    bar.style.background = col;
-    label.textContent = current ? (txt + " · ~" + Math.round(bits) + " bits of entropy") : "";
-  }
-
-  function render() {
-    lenVal.textContent = lenEl.value;
-    if (!window.crypto || !crypto.getRandomValues) { out.textContent = "This browser cannot generate secure passwords."; return; }
-    var pool = makePool();
-    if (!pool) { current = ""; out.textContent = "Select at least one character set."; bar.style.width = "0"; label.textContent = ""; return; }
-    var n = parseInt(lenEl.value, 10);
-    var chars = pool.split("");
-    var pw = "";
-    for (var i = 0; i < n; i++) pw += chars[randInt(chars.length)];
-    current = pw;
-    out.textContent = pw;
-    grade(n * Math.log2(pool.length));
-  }
-
-  function copy() {
-    if (!current) return;
-    var done = function () { var b = copyBtn; b.textContent = "Copied!"; b.disabled = true; setTimeout(function () { b.textContent = "Copy"; b.disabled = false; }, 1200); };
-    function fallback() {
-      var t = document.createElement("textarea"); t.value = current;
-      t.style.position = "fixed"; t.style.opacity = "0"; document.body.appendChild(t); t.select();
-      try { document.execCommand("copy"); done(); } catch (e) { copyBtn.textContent = "Copy failed"; }
-      document.body.removeChild(t);
-    }
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(current).then(done, fallback);
-    } else { fallback(); }
-  }
-
-  lenEl.addEventListener("input", render);
-  ["upper", "lower", "digit", "sym", "amb"].forEach(function (id) { $(id).addEventListener("change", render); });
-  regenBtn.addEventListener("click", render);
-  copyBtn.addEventListener("click", copy);
-  render();
-})();
-</script>
+<footer id="site-footer"></footer>
+<script src="../js/app.js"></script>
+<script src="script.js"></script>
+<script>BoringTools.injectRelatedTools("password-generator");</script>
 </body>
 </html>

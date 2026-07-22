@@ -3,21 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>UUID Generator — Random RFC 4122 Version 4 UUIDs | Boring Tools</title>
-<meta name="description" content="Generate random RFC 4122 version 4 UUIDs in your browser using a cryptographically secure RNG. No tracking, nothing leaves your device.">
+<title>UUID Generator | Boring Tools</title>
+<meta name="description" content="Generate random RFC 4122 version 4 UUIDs using a cryptographically secure RNG.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://Aibotflix.github.io/tools/uuid-generator/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="UUID Generator — Random RFC 4122 v4 UUIDs">
-<meta property="og:description" content="Generate random version 4 UUIDs with a secure crypto RNG. Runs in your browser, no tracking.">
+<meta property="og:title" content="UUID Generator | Boring Tools">
+<meta property="og:description" content="Random version 4 UUIDs with a secure crypto RNG.">
 <meta property="og:url" content="https://Aibotflix.github.io/tools/uuid-generator/">
+<meta property="og:image" content="https://Aibotflix.github.io/tools/social-card.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="UUID Generator | Boring Tools">
+<meta name="twitter:description" content="Random version 4 UUIDs with a secure crypto RNG.">
+<meta name="twitter:image" content="https://Aibotflix.github.io/tools/social-card.svg">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../site.webmanifest">
 <link rel="stylesheet" href="../style.css">
-<!-- TODO: ad slot — drop AdSense <ins> here once approved -->
+<script type="application/ld+json">
+{ "@context":"https://schema.org","@type":"WebApplication","name":"UUID Generator","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","url":"https://Aibotflix.github.io/tools/uuid-generator/","description":"Generate random RFC 4122 v4 UUIDs using a cryptographically secure RNG. Up to 500 at a time.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"browserRequirements":"Requires JavaScript" }
+</script>
+<script type="application/ld+json">
+{ "@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+  {"@type":"ListItem","position":1,"name":"Home","item":"https://Aibotflix.github.io/tools/"},
+  {"@type":"ListItem","position":2,"name":"Developer Tools","item":"https://Aibotflix.github.io/tools/categories/developer-tools.html"},
+  {"@type":"ListItem","position":3,"name":"UUID Generator"}
+]}
+</script>
+<script type="application/ld+json">
+{ "@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"What is a UUID?","acceptedAnswer":{"@type":"Answer","text":"A UUID (universally unique identifier) is a 128-bit value shown as 36 characters with hyphens. Version 4 UUIDs are random except for version and variant bits, making collisions astronomically unlikely."}},
+  {"@type":"Question","name":"How random are the UUIDs?","acceptedAnswer":{"@type":"Answer","text":"This generator uses window.crypto.getRandomValues, a cryptographically secure RNG — not Math.random(). If your browser supports crypto.randomUUID, that method is used directly."}}
+]}
+</script>
 </head>
 <body>
-<header class="site"><div class="container"><a class="brand" href="../">Boring Tools</a><nav class="site"><a href="../about.html">About</a><a href="../privacy.html">Privacy</a></nav></div></header>
+<header id="site-header"></header>
 <main class="container">
-  <p class="crumb"><a href="../">Boring Tools</a> / UUID Generator</p>
+  <div id="breadcrumbs"></div>
   <h1>UUID Generator</h1>
   <p class="lead">Generate random RFC 4122 version 4 UUIDs with a cryptographically secure RNG. Up to 500 at a time, offline.</p>
   <div class="tool">
@@ -39,51 +61,11 @@
   <p>A UUID (universally unique identifier) is a 128-bit value usually shown as 36 characters with hyphens, for example <code>550e8400-e29b-41d4-a716-446655440000</code>. Version 4 UUIDs are random except for the version and variant bits, making collisions astronomically unlikely.</p>
   <h2>How random is "random"?</h2>
   <p>This generator uses <code>window.crypto.getRandomValues</code>, the same cryptographically secure RNG the password generator uses — not <code>Math.random()</code>, which is predictable. If your browser exposes <code>crypto.randomUUID</code>, that is used directly.</p>
+  <div id="related-tools"></div>
 </main>
-<footer class="site"><div class="container"><a href="../about.html">About</a><a href="../privacy.html">Privacy</a><span>© 2026 Boring Tools</span></div></footer>
-<script>
-(function () {
-  "use strict";
-  var $ = function (id) { return document.getElementById(id); };
-  var count = $("count"), countVal = $("countVal"), out = $("out");
-  var u8 = new Uint8Array(16);
-  function v4() {
-    if (window.crypto && typeof crypto.randomUUID === "function") return crypto.randomUUID();
-    crypto.getRandomValues(u8);
-    u8[6] = (u8[6] & 0x0f) | 0x40; // version 4
-    u8[8] = (u8[8] & 0x3f) | 0x80; // variant 10xx
-    var h = Array.prototype.map.call(u8, function (b) { return b.toString(16).padStart(2, "0"); }).join("");
-    return h.slice(0, 8) + "-" + h.slice(8, 12) + "-" + h.slice(12, 16) + "-" + h.slice(16, 20) + "-" + h.slice(20, 32);
-  }
-  function generate() {
-    countVal.textContent = count.value;
-    if (!window.crypto || !crypto.getRandomValues) { out.value = "This browser cannot generate secure UUIDs."; return; }
-    var n = parseInt(count.value, 10) || 1;
-    var up = $("up").checked, br = $("brace").checked;
-    var lines = [];
-    for (var i = 0; i < n; i++) {
-      var id = v4();
-      if (up) id = id.toUpperCase();
-      if (br) id = "{" + id + "}";
-      lines.push(id);
-    }
-    out.value = lines.join("\n");
-  }
-  function copy() {
-    var v = out.value;
-    if (!v) return;
-    var b = $("copy");
-    var done = function () { b.textContent = "Copied!"; b.disabled = true; setTimeout(function () { b.textContent = "Copy"; b.disabled = false; }, 1200); };
-    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(v).then(done, function () { b.textContent = "Copy failed"; });
-    else b.textContent = "Copy not supported";
-  }
-  count.addEventListener("input", generate);
-  $("up").addEventListener("change", generate);
-  $("brace").addEventListener("change", generate);
-  $("gen").addEventListener("click", generate);
-  $("copy").addEventListener("click", copy);
-  generate();
-})();
-</script>
+<footer id="site-footer"></footer>
+<script src="../js/app.js"></script>
+<script src="script.js"></script>
+<script>BoringTools.injectRelatedTools("uuid-generator");</script>
 </body>
 </html>
