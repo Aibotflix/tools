@@ -30,22 +30,52 @@
 <header id="site-header"></header>
 <main class="container">
   <div id="breadcrumbs"></div>
-  <h1>Tool Categories</h1>
-  <p class="lead">Browse tools by category.</p>
-  <ul class="cat-cards" id="cat-grid"></ul>
+  <h1 id="page-title">Tool Categories</h1>
+  <p class="lead" id="page-lead">Browse tools by category.</p>
+  <div id="cat-view">
+    <ul class="cat-cards" id="cat-grid"></ul>
+  </div>
+  <div id="tool-view" style="display:none">
+    <ul class="cards" id="tool-grid"></ul>
+  </div>
 </main>
 <footer id="site-footer"></footer>
 <script src="../js/app.js"></script>
 <script>
 (function () {
   var bt = window.BoringTools;
-  var el = document.getElementById("cat-grid");
-  var html = "";
-  for (var i = 0; i < bt.categories.length; i++) {
-    var c = bt.categories[i];
-    html += '<li><a class="cat-card" href="' + bt.catUrl(c.slug) + '"><span class="t">' + c.title + '</span><span class="d">' + c.description + '</span></a></li>';
+  var params = new URLSearchParams(location.search);
+  var cat = params.get("cat");
+
+  if (cat) {
+    var catData = null;
+    for (var i = 0; i < bt.categories.length; i++) {
+      if (bt.categories[i].slug === cat) { catData = bt.categories[i]; break; }
+    }
+    if (!catData) { cat = null; }
   }
-  el.innerHTML = html;
+
+  if (cat && catData) {
+    document.title = catData.title + " — Boring Tools";
+    document.getElementById("page-title").textContent = catData.title;
+    document.getElementById("page-lead").textContent = catData.description;
+    document.getElementById("cat-view").style.display = "none";
+    document.getElementById("tool-view").style.display = "";
+    var canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) canonical.setAttribute("href", "https://Aibotflix.github.io/tools/categories/?cat=" + cat);
+    var ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogUrl) ogUrl.setAttribute("content", "https://Aibotflix.github.io/tools/categories/?cat=" + cat);
+    var filtered = bt.tools.filter(function (t) { return t.category === cat; });
+    bt.renderToolGrid("tool-grid", filtered);
+  } else {
+    var el = document.getElementById("cat-grid");
+    var html = "";
+    for (var i = 0; i < bt.categories.length; i++) {
+      var c = bt.categories[i];
+      html += '<li><a class="cat-card" href="' + bt.catUrl(c.slug) + '"><span class="t">' + c.title + '</span><span class="d">' + c.description + '</span></a></li>';
+    }
+    el.innerHTML = html;
+  }
 })();
 </script>
 </body>

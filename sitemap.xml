@@ -2,10 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://Aibotflix.github.io/tools/</loc><priority>1.0</priority></url>
   <url><loc>https://Aibotflix.github.io/tools/categories/</loc><priority>0.7</priority></url>
-  <url><loc>https://Aibotflix.github.io/tools/categories/text-writing.html</loc><priority>0.6</priority></url>
-  <url><loc>https://Aibotflix.github.io/tools/categories/developer-tools.html</loc><priority>0.6</priority></url>
-  <url><loc>https://Aibotflix.github.io/tools/categories/converters.html</loc><priority>0.6</priority></url>
-  <url><loc>https://Aibotflix.github.io/tools/categories/security-privacy.html</loc><priority>0.6</priority></url>
+  <url><loc>https://Aibotflix.github.io/tools/categories/?cat=text-writing</loc><priority>0.6</priority></url>
+  <url><loc>https://Aibotflix.github.io/tools/categories/?cat=developer-tools</loc><priority>0.6</priority></url>
+  <url><loc>https://Aibotflix.github.io/tools/categories/?cat=converters</loc><priority>0.6</priority></url>
+  <url><loc>https://Aibotflix.github.io/tools/categories/?cat=security-privacy</loc><priority>0.6</priority></url>
   <url><loc>https://Aibotflix.github.io/tools/password-generator/</loc><priority>0.8</priority></url>
   <url><loc>https://Aibotflix.github.io/tools/word-counter/</loc><priority>0.8</priority></url>
   <url><loc>https://Aibotflix.github.io/tools/case-converter/</loc><priority>0.8</priority></url>

@@ -39,7 +39,7 @@
   }
 
   function toolUrl(slug) { return CONFIG.baseUrl + "/" + slug + "/"; }
-  function catUrl(slug) { return CONFIG.baseUrl + "/categories/" + slug + ".html"; }
+  function catUrl(slug) { return CONFIG.baseUrl + "/categories/?cat=" + slug; }
 
   // --- Header ---
   function injectHeader() {
