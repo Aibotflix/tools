@@ -11,8 +11,8 @@
   }
 
   function getECLevel() {
-    var map = { L: 1, M: 0, Q: 3, H: 2 }; // qrcode-generator uses 0-3
-    return map[ecEl.value] || 0;
+    var v = ecEl.value;
+    return (v === "L" || v === "M" || v === "Q" || v === "H") ? v : "M";
   }
 
   function generate() {
