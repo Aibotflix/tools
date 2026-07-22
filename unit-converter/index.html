@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unit Converter — Length, Weight & Temperature | Boring Tools</title>
+<meta name="description" content="Free online unit converter for length, weight and temperature: meters, miles, kilograms, pounds, Celsius, Fahrenheit and more. Runs in your browser.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://Aibotflix.github.io/tools/unit-converter/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Unit Converter — Length, Weight & Temperature">
+<meta property="og:description" content="Convert length, weight and temperature between common units. Runs in your browser.">
+<meta property="og:url" content="https://Aibotflix.github.io/tools/unit-converter/">
+<link rel="stylesheet" href="../style.css">
+<!-- TODO: ad slot — drop AdSense <ins> here once approved -->
+</head>
+<body>
+<header class="site"><div class="container"><a class="brand" href="../">Boring Tools</a><nav class="site"><a href="../about.html">About</a><a href="../privacy.html">Privacy</a></nav></div></header>
+<main class="container">
+  <p class="crumb"><a href="../">Boring Tools</a> / Unit Converter</p>
+  <h1>Unit Converter</h1>
+  <p class="lead">Convert between common units of length, weight and temperature instantly. No tracking, nothing sent anywhere.</p>
+  <div class="tool">
+    <div class="field">
+      <label for="cat">Category</label>
+      <select id="cat">
+        <option value="length">Length</option>
+        <option value="mass">Weight</option>
+        <option value="temperature">Temperature</option>
+      </select>
+    </div>
+    <div class="row" style="align-items:flex-end;gap:12px">
+      <div class="field" style="flex:1;min-width:120px;margin:0">
+        <label for="from">From</label>
+        <select id="from"></select>
+      </div>
+      <div class="field" style="flex:1;min-width:120px;margin:0">
+        <label for="val">Value</label>
+        <input id="val" type="number" value="1" step="any" inputmode="decimal">
+      </div>
+    </div>
+    <div class="row" style="align-items:flex-end;gap:12px;margin-top:12px">
+      <div class="field" style="flex:1;min-width:120px;margin:0">
+        <label for="to">To</label>
+        <select id="to"></select>
+      </div>
+      <div class="field" style="flex:1;min-width:120px;margin:0">
+        <label for="result">Result</label>
+        <input id="result" type="text" readonly aria-label="Converted result">
+      </div>
+    </div>
+    <button id="swap" class="secondary" type="button" style="margin-top:12px">Swap units ↻</button>
+  </div>
+  <h2>Accurate conversions</h2>
+  <p>Length and weight conversions go through a single base unit (metre and gram) using exact factors, so values round-trip without drift. Temperature is handled separately since it isn't a simple ratio. Results are shown to a sensible precision — trim trailing zeros, not accuracy.</p>
+</main>
+<footer class="site"><div class="container"><a href="../about.html">About</a><a href="../privacy.html">Privacy</a><span>© 2026 Boring Tools</span></div></footer>
+<script>
+(function () {
+  "use strict";
+  function $ (id){ return document.getElementById(id); }
+  var cats = {
+    length: ["Meter","Kilometer","Centimeter","Millimeter","Mile","Yard","Foot","Inch","Nautical mile"],
+    mass: ["Gram","Kilogram","Milligram","Microgram","Pound","Ounce","Stone","Tonne"]
+  };
+  var factor = {
+    length: { Meter:1, Kilometer:1000, Centimeter:0.01, Millimeter:0.001, Mile:1609.344, Yard:0.9144, Foot:0.3048, Inch:0.0254, "Nautical mile":1852 },
+    mass: { Gram:1, Kilogram:1000, Milligram:0.001, Microgram:1e-6, Pound:453.59237, Ounce:28.349523125, Stone:6350.29318, Tonne:1000000 }
+  };
+  var temp = ["Celsius","Fahrenheit","Kelvin"];
+  function toC(v, u){ return u==="Celsius" ? v : u==="Fahrenheit" ? (v-32)*5/9 : v-273.15; }
+  function fromC(c, u){ return u==="Celsius" ? c : u==="Fahrenheit" ? c*9/5+32 : c+273.15; }
+  function fmt(n){ if (!isFinite(n)) return "—"; return parseFloat(n.toPrecision(10)).toString(); }
+
+  function populate(cat){
+    var list = cat==="temperature" ? temp : cats[cat];
+    var f = $("from"), t = $("to"); f.innerHTML=""; t.innerHTML="";
+    list.forEach(function(u, i){
+      var a=document.createElement("option"); a.value=u; a.textContent=u; f.appendChild(a);
+      var b=document.createElement("option"); b.value=u; b.textContent=u; t.appendChild(b);
+    });
+    if (cat==="length"){ f.value="Mile"; t.value="Kilometer"; }
+    else if (cat==="mass"){ f.value="Pound"; t.value="Kilogram"; }
+    else { f.value="Celsius"; t.value="Fahrenheit"; }
+  }
+  function convert(){
+    var cat=$("cat").value, from=$("from").value, to=$("to").value, v=parseFloat($("val").value);
+    if (isNaN(v)){ $("result").value=""; return; }
+    var r = cat==="temperature" ? fromC(toC(v, from), to) : v * factor[cat][from] / factor[cat][to];
+    $("result").value = fmt(r);
+  }
+  $("cat").addEventListener("change", function(){ populate($("cat").value); convert(); });
+  $("from").addEventListener("change", convert);
+  $("to").addEventListener("change", convert);
+  $("val").addEventListener("input", convert);
+  $("swap").addEventListener("click", function(){ var f=$("from"),t=$("to"),x=f.value; f.value=t.value; t.value=x; convert(); });
+  populate("length"); convert();
+})();
+</script>
+</body>
+</html>

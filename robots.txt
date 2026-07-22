@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# TODO: replace Aibotflix and tools with your GitHub username and repo name
+Sitemap: https://Aibotflix.github.io/tools/sitemap.xml

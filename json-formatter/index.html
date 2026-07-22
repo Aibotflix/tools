@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JSON Formatter, Validator & Minifier | Boring Tools</title>
+<meta name="description" content="Format, validate and minify JSON instantly. Pretty-print with indentation, catch syntax errors with clear messages. Runs in your browser, no tracking.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://Aibotflix.github.io/tools/json-formatter/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="JSON Formatter, Validator & Minifier">
+<meta property="og:description" content="Pretty-print, minify and validate JSON with clear error messages. Runs in your browser.">
+<meta property="og:url" content="https://Aibotflix.github.io/tools/json-formatter/">
+<link rel="stylesheet" href="../style.css">
+<!-- TODO: ad slot — drop AdSense <ins> here once approved -->
+</head>
+<body>
+<header class="site"><div class="container"><a class="brand" href="../">Boring Tools</a><nav class="site"><a href="../about.html">About</a><a href="../privacy.html">Privacy</a></nav></div></header>
+<main class="container">
+  <p class="crumb"><a href="../">Boring Tools</a> / JSON Formatter</p>
+  <h1>JSON Formatter</h1>
+  <p class="lead">Beautify, minify and validate JSON — all in your browser, nothing sent anywhere.</p>
+  <div class="tool">
+    <div class="row tight" style="margin-bottom:10px">
+      <button data-act="format" type="button">Format (2 spaces)</button>
+      <button data-act="minify" class="secondary" type="button">Minify</button>
+      <button data-act="tabs" class="secondary" type="button">Format (tabs)</button>
+      <button id="copy" class="secondary" type="button">Copy result</button>
+    </div>
+    <textarea id="in" placeholder='Paste JSON here, e.g. {"hello":"world"}'></textarea>
+    <textarea id="out" readonly style="margin-top:10px" placeholder="Result appears here…"></textarea>
+    <div class="status" id="status"></div>
+  </div>
+  <h2>Private by design</h2>
+  <p>Parsing happens with your browser's built-in <code>JSON.parse</code> on your device. The data never goes to a server, so it is safe to paste API responses, config files or anything sensitive.</p>
+</main>
+<footer class="site"><div class="container"><a href="../about.html">About</a><a href="../privacy.html">Privacy</a><span>© 2026 Boring Tools</span></div></footer>
+<script>
+(function () {
+  "use strict";
+  var $ = function (id) { return document.getElementById(id); };
+  var input = $("in"), output = $("out");
+  function setStatus(msg, isErr) {
+    var s = $("status"); s.textContent = msg || ""; s.className = "status" + (isErr ? " err" : msg ? " ok" : "");
+  }
+  function parse() {
+    var v = input.value.trim();
+    if (!v) throw new Error("Nothing to parse yet.");
+    return JSON.parse(v);
+  }
+  function withError(fn, okMsg) {
+    try { var out = fn(); setStatus(okMsg || ""); output.value = out || ""; return output.value; }
+    catch (err) { output.value = ""; setStatus(err.message, true); return ""; }
+  }
+  function act(kind) {
+    if (kind === "format") {
+      withError(function () { return JSON.stringify(parse(), null, 2); }, "Formatted — valid JSON.");
+    } else if (kind === "minify") {
+      withError(function () { return JSON.stringify(parse()); }, "Minified — valid JSON.");
+    } else if (kind === "tabs") {
+      withError(function () { return JSON.stringify(parse(), null, "\t"); }, "Formatted with tabs — valid JSON.");
+    }
+  }
+  document.querySelectorAll("[data-act]").forEach(function (b) {
+    b.addEventListener("click", function () { act(b.dataset.act); });
+  });
+  $("copy").addEventListener("click", function () {
+    var v = output.value;
+    if (!v) { setStatus("Nothing to copy yet.", true); return; }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(v).then(function () { setStatus("Copied!"); }, function () { setStatus("Copy failed.", true); });
+    else setStatus("Copy not supported — select and copy manually.", true);
+  });
+})();
+</script>
+</body>
+</html>

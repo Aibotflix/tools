@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Word Counter — Count Characters, Words & Reading Time | Boring Tools</title>
+<meta name="description" content="Free online word counter. Count characters, words, sentences, lines and reading time live as you type. Runs entirely in your browser, no tracking.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://Aibotflix.github.io/tools/word-counter/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Word Counter — Count Characters, Words & Reading Time">
+<meta property="og:description" content="Live word, character, sentence and reading-time counter. Runs in your browser, no tracking.">
+<meta property="og:url" content="https://Aibotflix.github.io/tools/word-counter/">
+<link rel="stylesheet" href="../style.css">
+<!-- TODO: ad slot — drop AdSense <ins> here once approved -->
+</head>
+<body>
+<header class="site"><div class="container"><a class="brand" href="../">Boring Tools</a><nav class="site"><a href="../about.html">About</a><a href="../privacy.html">Privacy</a></nav></div></header>
+<main class="container">
+  <p class="crumb"><a href="../">Boring Tools</a> / Word Counter</p>
+  <h1>Word Counter</h1>
+  <p class="lead">Count characters, words, sentences, lines and reading time live as you type. Nothing leaves your browser.</p>
+  <div class="tool">
+    <textarea id="text" placeholder="Type or paste your text here…" aria-label="Text to count"></textarea>
+    <div class="stats" id="stats">
+      <div><b id="words">0</b><span>Words</span></div>
+      <div><b id="chars">0</b><span>Characters</span></div>
+      <div><b id="charsNs">0</b><span>No spaces</span></div>
+      <div><b id="sentences">0</b><span>Sentences</span></div>
+      <div><b id="lines">0</b><span>Lines</span></div>
+      <div><b id="reading">0 min</b><span>Reading time</span></div>
+      <div><b id="speaking">0 min</b><span>Speaking time</span></div>
+    </div>
+  </div>
+  <h2>How it works</h2>
+  <p>Every count updates instantly as you type — there is no button to press. A "word" is any run of non-whitespace characters; sentences are separated by <code>.</code>, <code>!</code> or <code>?</code>. Reading time assumes an average of 200 words per minute; speaking time assumes 130.</p>
+</main>
+<footer class="site"><div class="container"><a href="../about.html">About</a><a href="../privacy.html">Privacy</a><span>© 2026 Boring Tools</span></div></footer>
+<script>
+(function () {
+  "use strict";
+  var $ = function (id) { return document.getElementById(id); };
+  var text = $("text");
+  function mins(n) { return n <= 0 ? "0 min" : (Math.round(n) || 1) + " min"; }
+  function fmt(n) { return n.toLocaleString(); }
+  function update() {
+    var t = text.value;
+    var words = (t.match(/\S+/g) || []).length;
+    var sentences = (t.match(/[^.!?]+/g) || []).map(function (s) { return s.trim(); }).filter(Boolean).length;
+    var lines = t ? t.split(/\r\n|\r|\n/).length : 0;
+    $("words").textContent = fmt(words);
+    $("chars").textContent = fmt(t.length);
+    $("charsNs").textContent = fmt(t.replace(/\s/g, "").length);
+    $("sentences").textContent = fmt(sentences);
+    $("lines").textContent = fmt(lines);
+    $("reading").textContent = mins(words / 200);
+    $("speaking").textContent = mins(words / 130);
+  }
+  text.addEventListener("input", update);
+  update();
+})();
+</script>
+</body>
+</html>

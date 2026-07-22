@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://Aibotflix.github.io/tools/</loc><priority>1.0</priority></url>
+  <url><loc>https://Aibotflix.github.io/tools/password-generator/</loc><priority>0.8</priority></url>
+  <url><loc>https://Aibotflix.github.io/tools/word-counter/</loc><priority>0.8</priority></url>
+  <url><loc>https://Aibotflix.github.io/tools/case-converter/</loc><priority>0.8</priority></url>
+  <url><loc>https://Aibotflix.github.io/tools/uuid-generator/</loc><priority>0.8</priority></url>
+  <url><loc>https://Aibotflix.github.io/tools/base64/</loc><priority>0.8</priority></url>
+  <url><loc>https://Aibotflix.github.io/tools/json-formatter/</loc><priority>0.8</priority></url>
+  <url><loc>https://Aibotflix.github.io/tools/unit-converter/</loc><priority>0.8</priority></url>
+  <url><loc>https://Aibotflix.github.io/tools/lorem-ipsum/</loc><priority>0.8</priority></url>
+  <url><loc>https://Aibotflix.github.io/tools/about.html</loc><priority>0.3</priority></url>
+  <url><loc>https://Aibotflix.github.io/tools/privacy.html</loc><priority>0.3</priority></url>
+</urlset>

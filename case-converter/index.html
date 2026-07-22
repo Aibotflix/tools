@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Case Converter — UPPER, lower, Title, camelCase, snake_case | Boring Tools</title>
+<meta name="description" content="Free online case converter. Convert text to UPPERCASE, lowercase, Title Case, Sentence case, camelCase, PascalCase, snake_case, kebab-case or CONSTANT_CASE. Runs in your browser.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://Aibotflix.github.io/tools/case-converter/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Case Converter — UPPER, lower, Title, camelCase & more">
+<meta property="og:description" content="Convert text between common cases instantly. Runs in your browser, no tracking.">
+<meta property="og:url" content="https://Aibotflix.github.io/tools/case-converter/">
+<link rel="stylesheet" href="../style.css">
+<!-- TODO: ad slot — drop AdSense <ins> here once approved -->
+</head>
+<body>
+<header class="site"><div class="container"><a class="brand" href="../">Boring Tools</a><nav class="site"><a href="../about.html">About</a><a href="../privacy.html">Privacy</a></nav></div></header>
+<main class="container">
+  <p class="crumb"><a href="../">Boring Tools</a> / Case Converter</p>
+  <h1>Case Converter</h1>
+  <p class="lead">Convert text between every common case — UPPER, lower, Title, camelCase, snake_case and more — instantly in your browser.</p>
+  <div class="tool">
+    <textarea id="in" placeholder="Type or paste text to convert…"></textarea>
+    <div class="row tight" id="btns" style="margin:12px 0"></div>
+    <textarea id="out" readonly placeholder="Converted text appears here…"></textarea>
+    <div class="row tight" style="margin-top:12px">
+      <button id="copy" class="secondary" type="button">Copy result</button>
+    </div>
+    <div class="status" id="status"></div>
+  </div>
+  <h2>Supported cases</h2>
+  <p>UPPERCASE and lowercase change every letter. Title Case capitalises the first letter of each word; Sentence case capitalises the first letter after a sentence-ending punctuation mark. camelCase and PascalCase strip separators and capitalise word initials; snake_case, kebab-case and CONSTANT_CASE join words with an underscore, hyphen or underscore-in-uppercase respectively.</p>
+</main>
+<footer class="site"><div class="container"><a href="../about.html">About</a><a href="../privacy.html">Privacy</a><span>© 2026 Boring Tools</span></div></footer>
+<script>
+(function () {
+  "use strict";
+  var $ = function (id) { return document.getElementById(id); };
+  var opts = {
+    UPPER: "UPPERCASE",
+    lower: "lowercase",
+    "Title Case": "Title Case",
+    "Sentence case": "Sentence case",
+    camelCase: "camelCase",
+    PascalCase: "PascalCase",
+    snake_case: "snake_case",
+    "kebab-case": "kebab-case",
+    CONSTANT_CASE: "CONSTANT_CASE"
+  };
+  function words(s) { return s.match(/[A-Za-z0-9]+/g) || []; }
+  function cap(w) { return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase(); }
+  function convert(key, s) {
+    var w = words(s);
+    switch (key) {
+      case "UPPER": return s.toUpperCase();
+      case "lower": return s.toLowerCase();
+      case "Title Case": return s.toLowerCase().replace(/\b\w/g, function (c) { return c.toUpperCase(); });
+      case "Sentence case": return s.toLowerCase().replace(/(^\s*\w|[.!?]\s*\w)/g, function (c) { return c.toUpperCase(); });
+      case "camelCase": return w.map(function (x, i) { return i ? cap(x) : x.toLowerCase(); }).join("");
+      case "PascalCase": return w.map(cap).join("");
+      case "snake_case": return w.map(function (x) { return x.toLowerCase(); }).join("_");
+      case "kebab-case": return w.map(function (x) { return x.toLowerCase(); }).join("-");
+      case "CONSTANT_CASE": return w.map(function (x) { return x.toUpperCase(); }).join("_");
+    }
+    return "";
+  }
+  var row = $("btns");
+  Object.keys(opts).forEach(function (key) {
+    var b = document.createElement("button");
+    b.className = "secondary"; b.type = "button"; b.textContent = opts[key]; b.dataset.conv = key;
+    b.addEventListener("click", function () {
+      $("out").value = convert(key, $("in").value);
+      setStatus("");
+    });
+    row.appendChild(b);
+  });
+  function setStatus(msg, isErr) {
+    var s = $("status"); s.textContent = msg || ""; s.className = "status" + (isErr ? " err" : msg ? " ok" : "");
+  }
+  function copy() {
+    var v = $("out").value;
+    if (!v) { setStatus("Nothing to copy yet.", true); return; }
+    var done = function () { setStatus("Copied!"); };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(v).then(done, function () { setStatus("Copy failed — select and copy manually.", true); });
+    else setStatus("Copy not supported — select and copy manually.", true);
+  }
+  $("copy").addEventListener("click", copy);
+})();
+</script>
+</body>
+</html>

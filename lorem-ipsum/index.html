@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lorem Ipsum Generator — Placeholder Text | Boring Tools</title>
+<meta name="description" content="Generate Lorem Ipsum placeholder paragraphs of dummy text for your designs and layouts. Choose how many paragraphs. Runs in your browser.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://Aibotflix.github.io/tools/lorem-ipsum/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lorem Ipsum Generator — Placeholder Text">
+<meta property="og:description" content="Generate Lorem Ipsum placeholder paragraphs for your layouts. Runs in your browser.">
+<meta property="og:url" content="https://Aibotflix.github.io/tools/lorem-ipsum/">
+<link rel="stylesheet" href="../style.css">
+<!-- TODO: ad slot — drop AdSense <ins> here once approved -->
+</head>
+<body>
+<header class="site"><div class="container"><a class="brand" href="../">Boring Tools</a><nav class="site"><a href="../about.html">About</a><a href="../privacy.html">Privacy</a></nav></div></header>
+<main class="container">
+  <p class="crumb"><a href="../">Boring Tools</a> / Lorem Ipsum Generator</p>
+  <h1>Lorem Ipsum Generator</h1>
+  <p class="lead">Generate placeholder paragraphs of classic Lorem Ipsum dummy text for your layouts and mockups.</p>
+  <div class="tool">
+    <div class="field">
+      <label for="count">Paragraphs: <b id="countVal">2</b></label>
+      <input id="count" type="range" min="1" max="20" value="2">
+    </div>
+    <span class="check"><label><input type="checkbox" id="classic" checked> Start with "Lorem ipsum dolor sit amet"</label></span>
+    <div class="row tight" style="margin:12px 0">
+      <button id="gen" type="button">Generate</button>
+      <button id="copy" class="secondary" type="button">Copy</button>
+    </div>
+    <textarea id="out" readonly placeholder="Generated placeholder text appears here…"></textarea>
+  </div>
+  <h2>What is Lorem Ipsum?</h2>
+  <p>Lorem Ipsum is scrambled Latin derived from Cicero's <em>de Finibus</em>, used by typesetters since the 1500s as dummy filler. Because it looks like real text but doesn't distract the reader with meaning, it's the standard placeholder for layout and design work.</p>
+</main>
+<footer class="site"><div class="container"><a href="../about.html">About</a><a href="../privacy.html">Privacy</a><span>© 2026 Boring Tools</span></div></footer>
+<script>
+(function () {
+  "use strict";
+  function $(id){ return document.getElementById(id); }
+  var words = ("lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam quis nostrud exercitation ullamco laboris nisi aliquip ex ea commodo consequat duis aute irure in reprehenderit voluptate velit esse cillum eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt culpa qui officia deserunt mollit anim id est laborum").split(" ");
+  var n = words.length;
+  function ri(max){ return Math.floor(Math.random() * max); }
+  function sentence(){
+    var len = 4 + ri(9), s = [], i;
+    for (i = 0; i < len; i++) s.push(words[ri(n)]);
+    var str = s.join(" ");
+    return str.charAt(0).toUpperCase() + str.slice(1) + ".";
+  }
+  function paragraph(){
+    var len = 3 + ri(4), s = [], i;
+    for (i = 0; i < len; i++) s.push(sentence());
+    var p = s.join(" ");
+    if ($("classic").checked) {
+      p = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " + p;
+    }
+    return p;
+  }
+  function generate(){
+    $("countVal").textContent = $("count").value;
+    var count = parseInt($("count").value, 10) || 1, ps = [], i;
+    for (i = 0; i < count; i++) ps.push(paragraph());
+    $("out").value = ps.join("\n\n");
+  }
+  $("count").addEventListener("input", generate);
+  $("classic").addEventListener("change", generate);
+  $("gen").addEventListener("click", generate);
+  $("copy").addEventListener("click", function () {
+    var v = $("out").value;
+    if (!v) return;
+    var b = $("copy");
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(v).then(function(){ b.textContent="Copied!"; setTimeout(function(){ b.textContent="Copy"; },1200); }, function(){ b.textContent="Copy failed"; });
+    else b.textContent = "Copy not supported";
+  });
+  generate();
+})();
+</script>
+</body>
+</html>
