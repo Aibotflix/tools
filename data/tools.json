@@ -35,7 +35,7 @@
       "keywords": ["password", "generator", "random", "secure", "crypto"],
       "related": ["uuid-generator", "hash-generator"],
       "priority": 0.8,
-      "featured": true
+      "featured": false
     },
     {
       "slug": "word-counter",
@@ -55,7 +55,7 @@
       "keywords": ["case", "converter", "uppercase", "lowercase", "camelcase", "snakecase"],
       "related": ["word-counter", "rot13"],
       "priority": 0.8,
-      "featured": true
+      "featured": false
     },
     {
       "slug": "uuid-generator",
