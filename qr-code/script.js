@@ -70,7 +70,7 @@
       qrInfo.textContent = moduleCount + "×" + moduleCount + " modules | " + ecEl.value + " error correction | " + text.length + " characters encoded";
       setStatus("");
     } catch (e) {
-      setStatus("Could not generate QR code: " + e.message, true);
+      setStatus("Could not generate QR code: " + (typeof e === "string" ? e : e.message), true);
     }
   }
 
