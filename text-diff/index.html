@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Text Diff Checker | Boring Tools</title>
+<meta name="description" content="Compare two texts side by side. See what changed — lines added in green, removed in red. Free, private, runs in your browser.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://Aibotflix.github.io/tools/text-diff/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Text Diff Checker | Boring Tools">
+<meta property="og:description" content="Compare two texts side by side. See what changed — lines added in green, removed in red.">
+<meta property="og:url" content="https://Aibotflix.github.io/tools/text-diff/">
+<meta property="og:image" content="https://Aibotflix.github.io/tools/social-card.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Text Diff Checker | Boring Tools">
+<meta name="twitter:description" content="Compare two texts side by side. See what changed.">
+<meta name="twitter:image" content="https://Aibotflix.github.io/tools/social-card.svg">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="stylesheet" href="../style.css">
+<style>
+.diff-wrap { max-width: 100%; overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius); font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: .9rem; line-height: 1.7; }
+.diff-line { display: flex; min-height: 28px; }
+.diff-num { width: 40px; min-width: 40px; text-align: right; padding: 0 8px; color: var(--muted); user-select: none; background: var(--bg); border-right: 1px solid var(--border); }
+.diff-text { flex: 1; padding: 0 10px; white-space: pre-wrap; word-break: break-all; }
+.diff-same { background: transparent; }
+.diff-add { background: #d4edda; }
+.diff-rem { background: #f8d7da; }
+@media (prefers-color-scheme: dark) {
+  .diff-add { background: #1a3a2a; }
+  .diff-rem { background: #3a1a1a; }
+}
+.diff-empty { color: var(--muted); font-style: italic; padding: 20px; text-align: center; }
+.tool textarea { min-height: 120px; }
+@media (max-width: 600px) {
+  .diff-num { width: 32px; min-width: 32px; padding: 0 4px; font-size: .8rem; }
+  .diff-text { padding: 0 6px; font-size: .85rem; }
+}
+</style>
+<script type="application/ld+json">
+{ "@context":"https://schema.org","@type":"WebApplication","name":"Text Diff Checker","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","url":"https://Aibotflix.github.io/tools/text-diff/","description":"Compare two texts and see what changed. Lines added in green, removed in red. Runs in your browser.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"browserRequirements":"Requires JavaScript" }
+</script>
+<script type="application/ld+json">
+{ "@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+  {"@type":"ListItem","position":1,"name":"Home","item":"https://Aibotflix.github.io/tools/"},
+  {"@type":"ListItem","position":2,"name":"Text & Writing","item":"https://Aibotflix.github.io/tools/categories/?cat=text-writing"},
+  {"@type":"ListItem","position":3,"name":"Text Diff Checker"}
+]}
+</script>
+<script type="application/ld+json">
+{ "@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"How to read a diff","acceptedAnswer":{"@type":"Answer","text":"Green lines with a + are new in the changed version. Red lines with a − were removed. White lines stayed the same. Handy for spotting edits in code, drafts, configs — anything text."}},
+  {"@type":"Question","name":"Is my data private?","acceptedAnswer":{"@type":"Answer","text":"Yes. Your two texts never leave your browser. The diff is computed locally. Nothing is sent to any server."}}
+]}
+</script>
+</head>
+<body>
+<header id="site-header"></header>
+<main class="container">
+  <div id="breadcrumbs"></div>
+  <h1>Text Diff Checker</h1>
+  <p class="lead">Got two versions of a file and need to know what's different? Paste them side by side. Green is new, red is gone.</p>
+  <div class="tool">
+    <div class="row" style="margin-bottom:12px;gap:12px">
+      <div style="flex:1;min-width:0">
+        <label for="in-a" style="font-weight:600;display:block;margin-bottom:4px">Original text</label>
+        <textarea id="in-a" placeholder="Paste the original text here…" style="min-height:140px"></textarea>
+      </div>
+      <div style="flex:1;min-width:0">
+        <label for="in-b" style="font-weight:600;display:block;margin-bottom:4px">Changed text</label>
+        <textarea id="in-b" placeholder="Paste the changed text here…" style="min-height:140px"></textarea>
+      </div>
+    </div>
+    <div id="diff-stats" class="status"></div>
+    <div id="diff-out" class="diff-wrap">
+      <div class="diff-empty">Paste text in both boxes above to see the diff.</div>
+    </div>
+  </div>
+  <h2>How to read a diff</h2>
+  <p>Lines highlighted in green with a <code>+</code> are new. Red with a <code>−</code> got removed. Plain lines stayed the same. The line numbers on the left show you where things sit in the original vs the new version. Good for comparing code changes, spotting edits in a draft, or double-checking a config file before deploy.</p>
+  <h2>Is my data private?</h2>
+  <p>Yep. Your two texts never leave your browser. The diff runs locally — nothing gets sent to any server.</p>
+  <div id="related-tools"></div>
+</main>
+<footer id="site-footer"></footer>
+<script src="../js/app.js"></script>
+<script src="script.js"></script>
+<script>BoringTools.injectRelatedTools("text-diff");</script>
+</body>
+</html>

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tool Categories — Boring Tools</title>
-<meta name="description" content="Browse all tool categories: Text & Writing, Developer Tools, Converters, Security & Privacy, AI & Prompting.">
+<meta name="description" content="Browse all tool categories: Text & Writing, Code Formatters, Encoders & Converters, Data Converters, Generators, Security & Tokens, AI & Prompting.">
   <link rel="canonical" href="https://Aibotflix.github.io/tools/categories/">
   <meta name="robots" content="index, follow">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="../style.css">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Tool Categories — Boring Tools">
-<meta property="og:description" content="Browse all tool categories: Text & Writing, Developer Tools, Converters, Security & Privacy, AI & Prompting.">
+<meta property="og:description" content="Browse all tool categories: Text & Writing, Code Formatters, Encoders & Converters, Data Converters, Generators, Security & Tokens, AI & Prompting.">
 <meta property="og:url" content="https://Aibotflix.github.io/tools/categories/">
 <meta property="og:image" content="https://Aibotflix.github.io/tools/social-card.svg">
 <meta name="twitter:card" content="summary_large_image">
@@ -59,6 +59,8 @@
     document.title = catData.title + " — Boring Tools";
     document.getElementById("page-title").textContent = catData.title;
     document.getElementById("page-lead").textContent = catData.description;
+    var metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute("content", catData.description + " All tools run in your browser with no sign-up.");
     document.getElementById("cat-view").style.display = "none";
     document.getElementById("tool-view").style.display = "";
     var canonical = document.querySelector('link[rel="canonical"]');
