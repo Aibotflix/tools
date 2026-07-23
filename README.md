@@ -24,8 +24,14 @@
 **Base64 Encode / Decode** — full UTF-8 support.  
 **URL Encoder & Decoder** — percent-encoding for international characters.  
 **Binary Decimal Hex Converter** — convert between bases instantly.  
-**Rot13 & Caesar Cipher** — encode and decode with custom shift.  
+**Rot13 & Caesar Cipher** — encode and decode with custom shift.
 
+### Developer Tools
+**Environment Variable Diff** — compare .env files side by side.  
+**URL Debugger** — paste a URL, see it broken down, params parsed, issues flagged.  
+**Request Converter** — get the same HTTP request in Fetch, Axios, and cURL.  
+**CSS Flex/Grid Playground** — tweak layout properties, see changes live.  
+**JS Object Explorer** — paste a JS object, browse as a collapsible tree.
 
 ### Design Tools
 **Color Converter** — HEX, RGB, HSL with live swatch and color picker.  
@@ -56,7 +62,7 @@
 
 ---
 
-**[Browse all 29 tools →](https://Aibotflix.github.io/tools/)**
+**[Browse all 34 tools →](https://Aibotflix.github.io/tools/)**
 
 No account. No API keys. No rate limits. Open a page and it works.
 
