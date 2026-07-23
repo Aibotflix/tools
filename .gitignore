@@ -10,3 +10,9 @@ desktop.ini
 
 # Logs
 *.log
+
+# Non-website files
+AGENTS.md
+encoding-fix.md
+fix_encoding.py
+data/
