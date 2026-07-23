@@ -45,7 +45,7 @@
       "keywords": ["word", "counter", "character", "reading", "time", "text"],
       "related": ["case-converter", "lorem-ipsum"],
       "priority": 0.8,
-      "featured": true
+      "featured": false
     },
     {
       "slug": "case-converter",
@@ -95,7 +95,7 @@
       "keywords": ["unit", "converter", "length", "weight", "temperature", "metric", "imperial"],
       "related": ["timestamp-converter", "binary-converter"],
       "priority": 0.8,
-      "featured": true
+      "featured": false
     },
     {
       "slug": "lorem-ipsum",
@@ -205,7 +205,7 @@
       "keywords": ["qr", "code", "generator", "scan", "barcode", "url", "png", "svg", "download"],
       "related": ["base64", "url-encoder"],
       "priority": 0.9,
-      "featured": true
+      "featured": false
     },
     {
       "slug": "cron-expression-generator",
@@ -215,7 +215,7 @@
       "keywords": ["cron", "expression", "generator", "schedule", "linux", "timer", "job"],
       "related": ["timestamp-converter", "hash-generator"],
       "priority": 0.9,
-      "featured": true
+      "featured": false
     },
     {
       "slug": "hmac-generator",
@@ -225,7 +225,7 @@
       "keywords": ["hmac", "sha256", "sha512", "signature", "authentication", "api", "webhook", "security"],
       "related": ["hash-generator", "jwt-decoder"],
       "priority": 0.9,
-      "featured": true
+      "featured": false
     },
     {
       "slug": "protobuf-decoder",
