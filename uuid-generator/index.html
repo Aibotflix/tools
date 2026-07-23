@@ -32,7 +32,7 @@
 <script type="application/ld+json">
 { "@context":"https://schema.org","@type":"FAQPage","mainEntity":[
   {"@type":"Question","name":"What is a UUID?","acceptedAnswer":{"@type":"Answer","text":"A UUID (universally unique identifier) is a 128-bit value shown as 36 characters with hyphens. Version 4 UUIDs are random except for version and variant bits, making collisions astronomically unlikely."}},
-  {"@type":"Question","name":"How random are the UUIDs?","acceptedAnswer":{"@type":"Answer","text":"This generator uses window.crypto.getRandomValues, a cryptographically secure RNG — not Math.random(). If your browser supports crypto.randomUUID, that method is used directly."}}
+  {"@type":"Question","name":"How random is \"random\"?","acceptedAnswer":{"@type":"Answer","text":"This generator uses window.crypto.getRandomValues, a cryptographically secure RNG — not Math.random(). If your browser supports crypto.randomUUID, that method is used directly."}}
 ]}
 </script>
 </head>

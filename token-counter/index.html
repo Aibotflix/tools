@@ -27,9 +27,9 @@
   </script>
   <script type="application/ld+json">
   { "@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-    {"@type":"Question","name":"Is this an exact token count?","acceptedAnswer":{"@type":"Answer","text":"No. It estimates using average characters-per-token ratios for each model family. Real counts can be 5-30% off depending on content. Use the provider's own tokenizer for exact numbers."}},
-    {"@type":"Question","name":"Do you send my text anywhere?","acceptedAnswer":{"@type":"Answer","text":"No. Everything runs locally in your browser."}},
-    {"@type":"Question","name":"Why do estimates differ between models?","acceptedAnswer":{"@type":"Answer","text":"Each vendor uses a different tokenizer. OpenAI o200k_base, Google SentencePiece, and Anthropic's newer tokenizer all split text differently, so the same text gives different token counts per provider."}}
+    {"@type":"Question","name":"How does the token counter estimate my text?","acceptedAnswer":{"@type":"Answer","text":"Different models use different tokenizers, so one model might split 'hello world' into 2 tokens while another uses 1. This tool uses the chars-per-token ratios published by each provider — roughly 4 characters per token for OpenAI and Gemini, closer to 3.8 for newer Anthropic models. It's a rough estimate. For an exact count, use the provider's own tokenizer."}},
+    {"@type":"Question","name":"Which models are supported?","acceptedAnswer":{"@type":"Answer","text":"OpenAI (GPT-5, GPT-4o, GPT-4.1, o-series), Anthropic Claude (Opus 4.8, Sonnet 5, Fable 5, Mythos 5, Haiku 4, plus older models), and Google Gemini 2.x / 1.5. Pick the model from the dropdown and the tool picks the right ratio."}},
+    {"@type":"Question","name":"Is my text uploaded?","acceptedAnswer":{"@type":"Answer","text":"Nope. Everything runs in your browser. Nothing you type leaves your device."}}
   ]}
   </script>
 </head>
