@@ -1,6 +1,6 @@
 # Boring Tools
 
-**27 free online tools — no signup, no ads, no tracking.** Everything runs in your browser. Nothing is uploaded to any server.
+**29 free online tools — no signup, no ads, no tracking.** Everything runs in your browser. Nothing is uploaded to any server.
 
 **[→ Use the tools at boringtools.org](https://Aibotflix.github.io/tools/)**
 
@@ -25,7 +25,12 @@
 **URL Encoder & Decoder** — percent-encoding for international characters.  
 **Binary Decimal Hex Converter** — convert between bases instantly.  
 **Rot13 & Caesar Cipher** — encode and decode with custom shift.  
-**Color Converter** — HEX, RGB, HSL with live swatch and color picker.
+
+
+### Design Tools
+**Color Converter** — HEX, RGB, HSL with live swatch and color picker.  
+**Color Contrast Checker** — check WCAG AA/AAA contrast between two colors.  
+**CSS Minifier** — strip whitespace and comments, shrink your stylesheets.
 
 ### Data Converters
 **CSV to JSON Converter** — handles quoted fields and edge cases.  
@@ -51,7 +56,7 @@
 
 ---
 
-**[Browse all 27 tools →](https://Aibotflix.github.io/tools/)**
+**[Browse all 29 tools →](https://Aibotflix.github.io/tools/)**
 
 No account. No API keys. No rate limits. Open a page and it works.
 

@@ -9,8 +9,9 @@
   var CATEGORIES = [
     { slug: "text-writing", title: "Text & Writing", description: "Count words, convert case, compare text diffs and generate placeholder text." },
     { slug: "code-formatters", title: "Code Formatters", description: "Format, preview and validate JSON, Markdown, Regex and Protobuf data." },
-    { slug: "encoders", title: "Encoders & Converters", description: "Encode and convert between Base64, URL, binary, hex, color formats and ciphers." },
+    { slug: "encoders", title: "Encoders & Converters", description: "Encode and decode Base64, URL, binary, hex and cipher formats." },
     { slug: "data-converters", title: "Data Converters", description: "Convert between CSV, JSON, units and timestamps." },
+    { slug: "design-tools", title: "Design Tools", description: "Convert colors and check contrast ratios for accessible design." },
     { slug: "generators", title: "Generators", description: "Generate UUIDs, QR codes, cron expressions and .gitignore files." },
     { slug: "security-tools", title: "Security & Tokens", description: "Generate passwords, hashes, HMAC signatures and decode JWT tokens." },
     { slug: "ai-prompting", title: "AI & Prompting", description: "Count tokens, estimate prompt costs and prepare code context for AI tools." }
@@ -42,8 +43,10 @@
     { slug: "gitignore-generator", title: ".gitignore Generator", category: "generators", description: "Pick languages and frameworks to combine .gitignore templates from github/gitignore into one file.", keywords: ["gitignore","git","ignore","template","repo","project"], related: ["base64"], priority: 0.9, featured: false },
     { slug: "codebase-context-packer", title: "Codebase Context Packer", category: "ai-prompting", description: "Turn a folder into a Markdown blob with all file contents for pasting into an AI prompt.", keywords: ["codebase","context","prompt","llm","chatgpt","claude","folder","pack","markdown","ai"], related: ["token-counter"], priority: 0.9, featured: false },
     { slug: "text-diff", title: "Text Diff Checker", category: "text-writing", description: "Compare two texts side by side. See added, removed and unchanged lines highlighted.", keywords: ["diff","text","compare","difference","side","by","side","changes","lines"], related: ["markdown-preview","json-formatter"], priority: 0.9, featured: true },
-    { slug: "color-converter", title: "Color Converter", category: "encoders", description: "Convert colors between HEX, RGB and HSL with a live preview swatch.", keywords: ["color","converter","hex","rgb","hsl","css","design","preview"], related: ["json-formatter","regex-tester"], priority: 0.9, featured: true },
-    { slug: "json-to-csv", title: "JSON to CSV Converter", category: "data-converters", description: "Convert JSON arrays into CSV spreadsheets. Handles nested objects and arrays.", keywords: ["json","csv","converter","array","export","flatten","nested","data"], related: ["csv-json","json-formatter"], priority: 0.9, featured: true }
+    { slug: "color-converter", title: "Color Converter", category: "design-tools", description: "Convert colors between HEX, RGB and HSL with a live preview swatch.", keywords: ["color","converter","hex","rgb","hsl","css","design","preview"], related: ["color-contrast","json-formatter"], priority: 0.9, featured: true },
+    { slug: "json-to-csv", title: "JSON to CSV Converter", category: "data-converters", description: "Convert JSON arrays into CSV spreadsheets. Handles nested objects and arrays.", keywords: ["json","csv","converter","array","export","flatten","nested","data"], related: ["csv-json","json-formatter"], priority: 0.9, featured: true },
+    { slug: "color-contrast", title: "Color Contrast Checker", category: "design-tools", description: "See if two colors have enough contrast for readable text. Shows WCAG AA and AAA pass/fail.", keywords: ["color","contrast","checker","wcag","accessibility","a11y","ratio","aa","aaa","design"], related: ["color-converter"], priority: 0.9, featured: true },
+    { slug: "css-minifier", title: "CSS Minifier", category: "code-formatters", description: "Shrink your CSS by stripping whitespace, comments and extra characters. Just paste and copy.", keywords: ["css","minifier","compress","minify","optimize","performance","stylesheet","code"], related: ["json-formatter","markdown-preview"], priority: 0.9, featured: true }
   ];
 
   var FEATURED_TOOLS = [];

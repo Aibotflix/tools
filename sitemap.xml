@@ -3,10 +3,13 @@
   <url><loc>https://Aibotflix.github.io/tools/</loc><priority>1.0</priority></url>
   <url><loc>https://Aibotflix.github.io/tools/categories/</loc><priority>0.7</priority></url>
   <url><loc>https://Aibotflix.github.io/tools/categories/?cat=text-writing</loc><priority>0.6</priority></url>
-  <url><loc>https://Aibotflix.github.io/tools/categories/?cat=developer-tools</loc><priority>0.6</priority></url>
-  <url><loc>https://Aibotflix.github.io/tools/categories/?cat=converters</loc><priority>0.6</priority></url>
-  <url><loc>https://Aibotflix.github.io/tools/categories/?cat=security-privacy</loc><priority>0.6</priority></url>
-<url><loc>https://Aibotflix.github.io/tools/categories/?cat=ai-prompting</loc><priority>0.6</priority></url>
+  <url><loc>https://Aibotflix.github.io/tools/categories/?cat=code-formatters</loc><priority>0.6</priority></url>
+  <url><loc>https://Aibotflix.github.io/tools/categories/?cat=encoders</loc><priority>0.6</priority></url>
+  <url><loc>https://Aibotflix.github.io/tools/categories/?cat=data-converters</loc><priority>0.6</priority></url>
+  <url><loc>https://Aibotflix.github.io/tools/categories/?cat=design-tools</loc><priority>0.6</priority></url>
+  <url><loc>https://Aibotflix.github.io/tools/categories/?cat=generators</loc><priority>0.6</priority></url>
+  <url><loc>https://Aibotflix.github.io/tools/categories/?cat=security-tools</loc><priority>0.6</priority></url>
+  <url><loc>https://Aibotflix.github.io/tools/categories/?cat=ai-prompting</loc><priority>0.6</priority></url>
   <url><loc>https://Aibotflix.github.io/tools/password-generator/</loc><priority>0.8</priority></url>
   <url><loc>https://Aibotflix.github.io/tools/word-counter/</loc><priority>0.8</priority></url>
   <url><loc>https://Aibotflix.github.io/tools/case-converter/</loc><priority>0.8</priority></url>
@@ -28,9 +31,14 @@
   <url><loc>https://Aibotflix.github.io/tools/cron-expression-generator/</loc><priority>0.9</priority></url>
   <url><loc>https://Aibotflix.github.io/tools/hmac-generator/</loc><priority>0.9</priority></url>
   <url><loc>https://Aibotflix.github.io/tools/protobuf-decoder/</loc><priority>0.9</priority></url>
-<url><loc>https://Aibotflix.github.io/tools/token-counter/</loc><priority>0.9</priority></url>
-<url><loc>https://Aibotflix.github.io/tools/gitignore-generator/</loc><priority>0.9</priority></url>
-<url><loc>https://Aibotflix.github.io/tools/codebase-context-packer/</loc><priority>0.9</priority></url>
+  <url><loc>https://Aibotflix.github.io/tools/token-counter/</loc><priority>0.9</priority></url>
+  <url><loc>https://Aibotflix.github.io/tools/gitignore-generator/</loc><priority>0.9</priority></url>
+  <url><loc>https://Aibotflix.github.io/tools/codebase-context-packer/</loc><priority>0.9</priority></url>
+  <url><loc>https://Aibotflix.github.io/tools/text-diff/</loc><priority>0.9</priority></url>
+  <url><loc>https://Aibotflix.github.io/tools/color-converter/</loc><priority>0.9</priority></url>
+  <url><loc>https://Aibotflix.github.io/tools/json-to-csv/</loc><priority>0.9</priority></url>
+  <url><loc>https://Aibotflix.github.io/tools/color-contrast/</loc><priority>0.9</priority></url>
+  <url><loc>https://Aibotflix.github.io/tools/css-minifier/</loc><priority>0.9</priority></url>
   <url><loc>https://Aibotflix.github.io/tools/about.html</loc><priority>0.3</priority></url>
   <url><loc>https://Aibotflix.github.io/tools/contact.html</loc><priority>0.3</priority></url>
   <url><loc>https://Aibotflix.github.io/tools/privacy.html</loc><priority>0.3</priority></url>
