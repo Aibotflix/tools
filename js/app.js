@@ -10,8 +10,9 @@
     { slug: "text-writing", title: "Text & Writing", description: "Count words, convert case, generate placeholder text and more." },
     { slug: "developer-tools", title: "Developer Tools", description: "Format code, encode data, test regex, generate hashes and other developer utilities." },
     { slug: "converters", title: "Converters", description: "Convert between units, formats, encodings and data types." },
-    { slug: "security-privacy", title: "Security & Privacy", description: "Generate strong passwords, hashes and secure identifiers." }
-  ];
+{ slug: "security-privacy", title: "Security & Privacy", description: "Generate strong passwords, hashes and secure identifiers." },
+    { slug: "ai-prompting",     title: "AI & Prompting",    description: "Count tokens, estimate prompt costs and other AI utilities." }
+];
 
   var TOOLS = [
     { slug: "password-generator", title: "Password Generator", category: "security-privacy", description: "Generate strong, random passwords with a secure crypto RNG.", keywords: ["password","generator","random","secure","crypto"], related: ["uuid-generator","hash-generator"], priority: 0.8, featured: false },
@@ -34,7 +35,10 @@
     { slug: "qr-code", title: "QR Code Generator", category: "developer-tools", description: "Generate QR codes for any URL or text. Choose size, colors, error correction. Download PNG or SVG.", keywords: ["qr","code","generator","scan","barcode","url","png","svg","download"], related: ["base64","url-encoder"], priority: 0.9, featured: true },
     { slug: "cron-expression-generator", title: "Cron Expression Generator", category: "developer-tools", description: "Build cron expressions from dropdowns. See the next 5 run times before you commit.", keywords: ["cron","expression","generator","schedule","linux","timer","job"], related: ["timestamp-converter","hash-generator"], priority: 0.9, featured: true },
     { slug: "hmac-generator", title: "HMAC Generator", category: "security-privacy", description: "Generate HMAC-SHA256 and HMAC-SHA512 signatures from a message and secret key.", keywords: ["hmac","sha256","sha512","signature","authentication","api","webhook","security"], related: ["hash-generator","jwt-decoder"], priority: 0.9, featured: true },
-    { slug: "protobuf-decoder", title: "Protobuf Decoder", category: "developer-tools", description: "Decode protobuf binary data into a readable tree. Paste hex or base64 — auto-detects format.", keywords: ["protobuf","decoder","protocol","buffers","grpc","binary","wire","format"], related: ["jwt-decoder","base64"], priority: 0.9, featured: false }
+{ slug: "protobuf-decoder", title: "Protobuf Decoder", category: "developer-tools", description: "Decode protobuf binary data into a readable tree. Paste hex or base64 — auto-detects format.", keywords: ["protobuf","decoder","protocol","buffers","grpc","binary","wire","format"], related: ["jwt-decoder","base64"], priority: 0.9, featured: false },
+    { slug: "token-counter",   title: "Token Counter",    category: "ai-prompting",     description: "Estimate how many tokens your text will use for different AI models.", keywords: ["token","counter","ai","gpt","claude","gemini","prompt","context","window"], related: ["word-counter"], priority: 0.9, featured: true },
+    { slug: "gitignore-generator", title: ".gitignore Generator", category: "developer-tools", description: "Pick languages and frameworks to combine .gitignore templates from github/gitignore into one file.", keywords: ["gitignore","git","ignore","template","repo","project"], related: ["base64"], priority: 0.9, featured: false },
+    { slug: "codebase-context-packer", title: "Codebase Context Packer", category: "developer-tools", description: "Turn a folder into a Markdown blob with all file contents for pasting into an AI prompt.", keywords: ["codebase","context","prompt","llm","chatgpt","claude","folder","pack","markdown","ai"], related: ["token-counter"], priority: 0.9, featured: false }
   ];
 
   var FEATURED_TOOLS = [];

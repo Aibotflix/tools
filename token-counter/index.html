@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Token Counter | Boring Tools</title>
+  <meta name="description" content="Estimate how many tokens your prompt will use for GPT-4o, GPT-5, Claude, Gemini and others. Runs offline in your browser.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://Aibotflix.github.io/tools/token-counter/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Token Counter | Boring Tools">
+  <meta property="og:description" content="Estimate how many tokens your prompt will use. Works in your browser, no upload required.">
+  <meta property="og:url" content="https://Aibotflix.github.io/tools/token-counter/">
+  <meta property="og:image" content="https://Aibotflix.github.io/tools/social-card.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Token Counter | Boring Tools">
+  <meta name="twitter:description" content="Estimate how many tokens your prompt will use. Works in your browser, no upload required.">
+  <meta name="twitter:image" content="https://Aibotflix.github.io/tools/social-card.svg">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="../site.webmanifest">
+  <link rel="stylesheet" href="../style.css">
+  <script type="application/ld+json">
+  { "@context":"https://schema.org","@type":"WebApplication","name":"Token Counter","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","url":"https://Aibotflix.github.io/tools/token-counter/","description":"Estimate token counts for AI model prompts in your browser. No data is sent anywhere.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"browserRequirements":"Requires JavaScript" }
+  </script>
+  <script type="application/ld+json">
+  { "@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://Aibotflix.github.io/tools/"},{"@type":"ListItem","position":2,"name":"AI & Prompting","item":"https://Aibotflix.github.io/tools/categories/?cat=ai-prompting"},{"@type":"ListItem","position":3,"name":"Token Counter"}] }
+  </script>
+  <script type="application/ld+json">
+  { "@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Is this an exact token count?","acceptedAnswer":{"@type":"Answer","text":"No. It estimates using average characters-per-token ratios for each model family. Real counts can be 5-30% off depending on content. Use the provider's own tokenizer for exact numbers."}},
+    {"@type":"Question","name":"Do you send my text anywhere?","acceptedAnswer":{"@type":"Answer","text":"No. Everything runs locally in your browser."}},
+    {"@type":"Question","name":"Why do estimates differ between models?","acceptedAnswer":{"@type":"Answer","text":"Each vendor uses a different tokenizer. OpenAI o200k_base, Google SentencePiece, and Anthropic's newer tokenizer all split text differently, so the same text gives different token counts per provider."}}
+  ]}
+  </script>
+</head>
+<body>
+  <header id="site-header"></header>
+  <main class="container">
+    <div id="breadcrumbs"></div>
+    <h1>Token Counter</h1>
+    <p class="lead">Estimate how many tokens your text will be tokenized into for different AI models. No data leaves your browser.</p>
+
+    <div class="tool">
+      <div class="field">
+        <label for="model">Model</label>
+        <select id="model">
+          <optgroup label="OpenAI">
+            <option value="gpt-5.6" selected>GPT-5.6 (1.05M ctx)</option>
+            <option value="gpt-5.1">GPT-5.1 (1.05M ctx)</option>
+            <option value="gpt-5-mini">GPT-5 Mini (1.05M ctx)</option>
+            <option value="gpt-4o">GPT-4o (128K ctx)</option>
+            <option value="gpt-4o-mini">GPT-4o Mini (128K ctx)</option>
+            <option value="gpt-4.1">GPT-4.1 (1.05M ctx)</option>
+            <option value="gpt-4.1-mini">GPT-4.1 Mini (1.05M ctx)</option>
+            <option value="gpt-4.1-nano">GPT-4.1 Nano (1.05M ctx)</option>
+            <option value="o3">o3 (200K ctx)</option>
+            <option value="o3-mini">o3-mini (200K ctx)</option>
+            <option value="o3-pro">o3-pro (200K ctx)</option>
+            <option value="o4-mini">o4-mini (200K ctx)</option>
+          </optgroup>
+          <optgroup label="Anthropic Claude">
+            <option value="claude-sonnet-5">Claude Sonnet 5 (200K ctx)</option>
+            <option value="claude-opus-4-8">Claude Opus 4.8 (200K ctx)</option>
+            <option value="claude-fable-5">Claude Fable 5 (200K ctx)</option>
+            <option value="claude-mythos-5">Claude Mythos 5 (200K ctx)</option>
+            <option value="claude-haiku-4">Claude Haiku 4 (200K ctx)</option>
+            <option value="claude-sonnet-4">Claude Sonnet 4 (legacy, 200K ctx)</option>
+            <option value="claude-haiku-3.5">Claude Haiku 3.5 (legacy, 200K ctx)</option>
+          </optgroup>
+          <optgroup label="Google Gemini">
+            <option value="gemini-2.5-pro">Gemini 2.5 Pro (2M ctx)</option>
+            <option value="gemini-2.5-flash">Gemini 2.5 Flash (1M ctx)</option>
+            <option value="gemini-2.5-flash-lite">Gemini 2.5 Flash Lite (1M ctx)</option>
+            <option value="gemini-2.0-flash">Gemini 2.0 Flash (1M ctx)</option>
+            <option value="gemini-2.0-flash-lite">Gemini 2.0 Flash Lite (1M ctx)</option>
+          </optgroup>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="text">Prompt text</label>
+        <textarea id="text" rows="10" placeholder="Paste your prompt or system message here…"></textarea>
+      </div>
+
+      <div class="row" style="margin:12px 0">
+        <span class="stat"><b id="tokenCount">0</b> tokens est.</span>
+        <span class="stat"><b id="charCount">0</b> chars</span>
+        <span class="stat"><b id="wordCount">0</b> words</span>
+      </div>
+
+<div id="warning" class="status"></div>
+      <noscript><p>This tool needs JavaScript enabled to estimate tokens in your browser.</p></noscript>
+</div>
+
+    <p>Estimates are based on publicly documented average characters-per-token ratios. Actual token counts vary by content and model. For exact counts, use the provider's own tokenizer.</p>
+    <div class="tool" style="padding:12px 16px;font-size:0.95rem">
+      <table class="table" style="width:100%">
+        <thead><tr><th>Model family</th><th>Tokenizer</th><th>Est. chars/token</th><th>Source</th></tr></thead>
+        <tbody>
+          <tr><td>GPT-5 / GPT-4o / GPT-4.1 / o-series</td><td>o200k_base</td><td>~4.0</td><td>openai/tiktoken README</td></tr>
+          <tr><td>Claude Sonnet 5, Opus 4.8, Fable 5, Mythos 5</td><td>New Anthropic tokenizer</td><td>~3.8</td><td>Anthropic docs (newer = ~30% more tokens)</td></tr>
+          <tr><td>Claude Haiku 4, legacy Sonnet 4, Haiku 3.5</td><td>Legacy Anthropic tokenizer</td><td>~4.0</td><td>Prior-generation estimates</td></tr>
+          <tr><td>Gemini 2.x / 1.5</td><td>SentencePiece</td><td>~4.0</td><td>Google AI docs ("about 4 chars = 1 token")</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small">For precise counts, use the provider's own tokenizer: <a href="https://platform.openai.com/tokenizer" target="_blank" rel="noopener">OpenAI Tokenizer</a> · <a href="https://console.anthropic.com/count-tokens" target="_blank" rel="noopener">Anthropic Count Tokens</a> · <a href="https://ai.google.dev/gemini-api/docs/tokens" target="_blank" rel="noopener">Gemini token docs</a></p>
+
+    <div id="related-tools"></div>
+  </main>
+  <footer id="site-footer"></footer>
+  <script src="../js/app.js"></script>
+  <script src="script.js"></script>
+  <script>BoringTools.injectRelatedTools("token-counter");</script>
+</body>
+</html>

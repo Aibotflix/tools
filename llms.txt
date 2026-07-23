@@ -2,7 +2,15 @@
 
 > Free online tools that run in your browser. Nothing to install, no sign-up.
 
-Boring Tools is a collection of 21 browser-based utilities for developers, writers, and anyone who needs a quick conversion or generation task done. No data is sent to any server.
+Boring Tools is a collection of 24 browser-based utilities for developers, writers, and anyone who needs a quick conversion or generation task done. No data is sent to any server.
+
+## Browse categories
+
+- Text & Writing: Word Counter, Case Converter, Lorem Ipsum Generator
+- Developer Tools: JSON Formatter, Base64, UUID, Timestamp, URL Encoder, Binary/Hex, JWT, Rot13, Markdown Preview, Regex Tester, CSV↔JSON, QR Code Generator, Cron Expression Generator, Protobuf Decoder, .gitignore Generator, Codebase Context Packer, Token Counter
+- Converters: Unit Converter
+- Security & Privacy: Password Generator, Hash Generator, HMAC Generator
+- AI & Prompting: Token Counter, Codebase Context Packer
 
 ## Tools
 
@@ -26,6 +34,9 @@ Boring Tools is a collection of 21 browser-based utilities for developers, write
 - QR Code Generator: Generate QR codes for any URL or text. Choose size, colors, error correction. Download PNG or SVG.
 - Cron Expression Generator: Build cron expressions from dropdowns and presets. See the next 5 run times before you commit.
 - Protobuf Decoder: Decode protobuf binary data (hex or base64) into a readable tree structure showing field numbers, wire types, and values.
+- .gitignore Generator: Pick languages, frameworks and tools to combine matching templates from github/gitignore into a single .gitignore file. Add your own rules or download the result.
+- Codebase Context Packer: Drop a local folder, get a single Markdown file with all source code contents — ready to paste into a ChatGPT, Claude or Gemini prompt. Binary files are skipped. Runs in the browser, nothing uploaded.
+- Token Counter: Estimate how many tokens your prompt uses for OpenAI GPT-5/4o/o-series, Anthropic Claude (Opus 4.8, Sonnet 5, Fable 5, Mythos 5, Haiku 4), and Google Gemini 2.x. Based on publicly documented chars-per-token ratios — not an exact count. Works in the browser, nothing is uploaded.
 
 ### Converters
 - Unit Converter: Convert length (miles, km, meters, feet), weight (kg, lbs, grams, ounces) and temperature (Celsius, Fahrenheit, Kelvin).
@@ -34,6 +45,10 @@ Boring Tools is a collection of 21 browser-based utilities for developers, write
 - Password Generator: Generate strong random passwords with configurable length and character sets using crypto.getRandomValues.
 - Hash Generator: Generate MD5, SHA-1, SHA-256 and SHA-512 hashes from any text.
 - HMAC Generator: Generate HMAC-SHA256 and HMAC-SHA512 signatures from a message and secret key.
+
+### AI & Prompting
+- Token Counter: Estimate how many tokens your prompt uses for OpenAI GPT-5/4o/o-series, Anthropic Claude (Opus 4.8, Sonnet 5, Fable 5, Mythos 5, Haiku 4), and Google Gemini 2.x. Based on publicly documented chars-per-token ratios — not an exact count. Works in the browser, nothing is uploaded.
+- Codebase Context Packer: Drop a local folder, get a single Markdown file with all source code contents — ready to paste into a ChatGPT, Claude or Gemini prompt. Binary files are skipped. Runs in the browser, nothing uploaded.
 
 ## How it works
 
