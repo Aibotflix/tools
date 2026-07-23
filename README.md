@@ -1,8 +1,8 @@
 # Boring Tools
 
-**29 free online tools — no signup, no ads, no tracking.** Everything runs in your browser. Nothing is uploaded to any server.
+**34 free online tools — no signup, no ads, no tracking.** Everything runs in your browser. Nothing is uploaded to any server.
 
-**[→ Use the tools at boringtools.org](https://Aibotflix.github.io/tools/)**
+**[→ Use the tools](https://Aibotflix.github.io/tools/)**
 
 ---
 
