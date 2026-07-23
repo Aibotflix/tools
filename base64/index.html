@@ -42,12 +42,14 @@
   <div id="breadcrumbs"></div>
   <h1>Base64 Encode & Decode</h1>
   <p class="lead">Convert text to Base64 and back, with full UTF-8 support so emoji and accented characters survive.</p>
-  <div class="tool">
-    <div class="row tight" style="margin-bottom:10px">
-      <button data-do="encode" type="button">Encode →</button>
-      <button data-do="decode" type="button">← Decode</button>
-      <button id="copy" class="secondary" type="button">Copy result</button>
-    </div>
+    <div class="tool">
+      <div class="row" style="margin-bottom:10px;gap:8px">
+        <select id="dir" style="width:auto">
+          <option value="encode">Encode → Base64</option>
+          <option value="decode">Decode ← Text</option>
+        </select>
+        <button id="copy" class="secondary" type="button">Copy</button>
+      </div>
     <textarea id="in" placeholder="Type or paste your text or Base64 here…"></textarea>
     <textarea id="out" readonly style="margin-top:10px" placeholder="Result appears here…"></textarea>
     <div class="status" id="status"></div>

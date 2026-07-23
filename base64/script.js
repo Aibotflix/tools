@@ -29,9 +29,12 @@
       catch (e) { output.value = ""; setStatus("That isn't valid Base64.", true); }
     }
   }
-  document.querySelectorAll("[data-do]").forEach(function (b) {
-    b.addEventListener("click", function () { run(b.dataset.do); });
-  });
+  function convert() {
+    run($("dir").value);
+  }
+  $("in").addEventListener("input", convert);
+  $("dir").addEventListener("change", convert);
+
   $("copy").addEventListener("click", function () {
     var v = output.value;
     if (!v) { setStatus("Nothing to copy yet.", true); return; }

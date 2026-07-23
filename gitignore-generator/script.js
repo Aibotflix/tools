@@ -32,6 +32,7 @@
       { name: "Other",            ids: ["Node","npm","Yarn","pnpm","Docker","Pipenv","Poetry","JupyterNotebooks","Terraform","Unity","UnrealEngine","Composer","Composer.lock","Pip","conda","Maven","Gradle","Bundler","Composer","Global","apple","OSX","Jenv"] }
     ];
 
+    var allLabels = [];
     groups.forEach(function (g) {
       var h2 = el("h2", null, g.name);
       list.appendChild(h2);
@@ -39,6 +40,7 @@
       var field = el("div", "field checks");
       g.ids.forEach(function (id) {
         var label = el("label");
+        label.setAttribute("data-name", id.toLowerCase());
         var cb = el("input");
         cb.type = "checkbox";
         cb.value = id;
@@ -48,8 +50,16 @@
         label.appendChild(cb);
         label.appendChild(document.createTextNode(" " + id));
         field.appendChild(label);
+        allLabels.push(label);
       });
       list.appendChild(field);
+    });
+
+    $("filter").addEventListener("input", function () {
+      var q = this.value.toLowerCase().trim();
+      allLabels.forEach(function (l) {
+        l.style.display = !q || l.getAttribute("data-name").indexOf(q) !== -1 ? "" : "none";
+      });
     });
   }
 

@@ -44,10 +44,12 @@
   <h1>CSV to JSON Converter</h1>
   <p class="lead">Convert between CSV and JSON. Handles quoted fields, commas in values, and custom delimiters.</p>
   <div class="tool">
-    <div class="row tight" style="margin-bottom:10px">
-      <button data-act="csv2json" type="button">CSV → JSON</button>
-      <button data-act="json2csv" class="secondary" type="button">JSON → CSV</button>
-      <button id="copy" class="secondary" type="button">Copy result</button>
+    <div class="row" style="margin-bottom:10px;gap:8px">
+      <select id="dir" style="width:auto">
+        <option value="csv2json">CSV → JSON</option>
+        <option value="json2csv">JSON → CSV</option>
+      </select>
+      <button id="copy" class="secondary" type="button">Copy</button>
       <button id="download" class="secondary" type="button">Download</button>
     </div>
     <div class="field">
