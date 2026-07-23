@@ -51,9 +51,11 @@
     }
   }
 
-  document.querySelectorAll("[data-act]").forEach(function (b) {
-    b.addEventListener("click", function () { run(b.dataset.act); });
-  });
+  function convert() {
+    run($("dir").value);
+  }
+  $("in").addEventListener("input", convert);
+  $("dir").addEventListener("change", convert);
 
   $("copy").addEventListener("click", function () {
     var v = output.value;

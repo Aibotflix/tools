@@ -23,9 +23,11 @@
       withError(function () { return JSON.stringify(parse(), null, "\t"); }, "Formatted with tabs — valid JSON.");
     }
   }
-  document.querySelectorAll("[data-act]").forEach(function (b) {
-    b.addEventListener("click", function () { act(b.dataset.act); });
-  });
+  function convert() {
+    act($("mode").value);
+  }
+  $("in").addEventListener("input", convert);
+  $("mode").addEventListener("change", convert);
   $("copy").addEventListener("click", function () {
     var v = output.value;
     if (!v) { setStatus("Nothing to copy yet.", true); return; }

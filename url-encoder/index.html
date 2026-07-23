@@ -42,13 +42,15 @@
   <div id="breadcrumbs"></div>
   <h1>URL Encoder & Decoder</h1>
   <p class="lead">Encode URLs to percent-encoded format or decode them back. Full UTF-8 support for international characters and emoji.</p>
-  <div class="tool">
-    <div class="row tight" style="margin-bottom:10px">
-      <button data-act="encode" type="button">Encode</button>
-      <button data-act="decode" class="secondary" type="button">Decode</button>
-      <button data-act="encodeComponent" class="secondary" type="button">Encode Component</button>
-      <button id="copy" class="secondary" type="button">Copy result</button>
-    </div>
+    <div class="tool">
+      <div class="row" style="margin-bottom:10px;gap:8px">
+        <select id="dir" style="width:auto">
+          <option value="encode">Encode</option>
+          <option value="decode">Decode</option>
+          <option value="encodeComponent">Encode Component</option>
+        </select>
+        <button id="copy" class="secondary" type="button">Copy</button>
+      </div>
     <textarea id="in" placeholder="Paste a URL or text to encode/decode…"></textarea>
     <textarea id="out" readonly style="margin-top:10px" placeholder="Result appears here…"></textarea>
     <div class="status" id="status"></div>

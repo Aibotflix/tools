@@ -57,7 +57,6 @@
     }
   }
 
-  $("decode").addEventListener("click", decode);
   $("token").addEventListener("input", decode);
 
   function copyPart(id, label) {

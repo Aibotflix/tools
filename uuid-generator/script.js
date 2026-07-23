@@ -36,7 +36,6 @@
   count.addEventListener("input", generate);
   $("up").addEventListener("change", generate);
   $("brace").addEventListener("change", generate);
-  $("gen").addEventListener("click", generate);
   $("copy").addEventListener("click", copy);
   generate();
 })();

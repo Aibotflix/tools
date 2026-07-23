@@ -42,13 +42,15 @@
   <div id="breadcrumbs"></div>
   <h1>JSON Formatter</h1>
   <p class="lead">Beautify, minify and validate JSON — private, no sign-up.</p>
-  <div class="tool">
-    <div class="row tight" style="margin-bottom:10px">
-      <button data-act="format" type="button">Format (2 spaces)</button>
-      <button data-act="minify" class="secondary" type="button">Minify</button>
-      <button data-act="tabs" class="secondary" type="button">Format (tabs)</button>
-      <button id="copy" class="secondary" type="button">Copy result</button>
-    </div>
+    <div class="tool">
+      <div class="row" style="margin-bottom:10px;gap:8px">
+        <select id="mode" style="width:auto">
+          <option value="format">Format (2 spaces)</option>
+          <option value="tabs">Format (tabs)</option>
+          <option value="minify">Minify</option>
+        </select>
+        <button id="copy" class="secondary" type="button">Copy</button>
+      </div>
     <textarea id="in" placeholder='Paste JSON here, e.g. {"hello":"world"}'></textarea>
     <textarea id="out" readonly style="margin-top:10px" placeholder="Result appears here…"></textarea>
     <div class="status" id="status"></div>
