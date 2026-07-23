@@ -93,7 +93,7 @@
     var el = document.getElementById("breadcrumbs");
     if (!el) return;
     var path = location.pathname.replace(/\/$/, "").replace(/\/index\.html$/, "");
-    var base = CONFIG.baseUrl.replace(/\/$/, "");
+    var base = CONFIG.baseUrl.replace(/^https?:\/\/[^\/]+/, "").replace(/\/$/, "");
     var rel = path.replace(base, "").replace(/^\//, "").split("/");
     if (!rel.length || !rel[0]) return;
     var html = '<nav class="crumb" aria-label="Breadcrumb"><a href="' + CONFIG.baseUrl + '/">Home</a>';
