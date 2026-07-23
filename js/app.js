@@ -49,6 +49,9 @@
   function slugToTitle(slug) {
     return slug.replace(/-/g, " ").replace(/\b\w/g, function (c) { return c.toUpperCase(); });
   }
+  function escapeHtml(s) {
+    return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+  }
 
   function toolUrl(slug) { return CONFIG.baseUrl + "/" + slug + "/"; }
   function catUrl(slug) { return CONFIG.baseUrl + "/categories/?cat=" + slug; }
@@ -101,10 +104,11 @@
     for (var i = 0; i < rel.length; i++) {
       cumPath += "/" + rel[i];
       var name = rel[i].endsWith(".html") ? slugToTitle(rel[i].replace(".html", "")) : slugToTitle(rel[i]);
+      var safeName = escapeHtml(name);
       if (i === rel.length - 1) {
-        html += ' / <span aria-current="page">' + name + '</span>';
+        html += ' / <span aria-current="page">' + safeName + '</span>';
       } else {
-        html += ' / <a href="' + cumPath + '">' + name + '</a>';
+        html += ' / <a href="' + cumPath + '">' + safeName + '</a>';
       }
     }
     html += "</nav>";

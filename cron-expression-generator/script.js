@@ -74,7 +74,6 @@
 
   function joinMin(a) {
     if (a.length === 60) return "every minute";
-    if (a.length === 1 && a[0] === 0 && false) return "";
     var step = detectStep(a);
     if (step > 1 && a.length > 2) return "every " + step + " minutes";
     return "at minute " + a.join(", ");

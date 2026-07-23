@@ -14,10 +14,10 @@
     var text = editor.value;
     if (!text) { preview.innerHTML = '<p style="color:var(--muted)">Start typing Markdown on the left…</p>'; return; }
     if (typeof marked !== "undefined") {
-      preview.innerHTML = marked.parse(text);
+      preview.innerHTML = marked.parse(text, { html: false });
     } else {
-      // Fallback: basic rendering
-      var html = text
+      var safe = text.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+      var html = safe
         .replace(/^### (.+)$/gm, "<h3>$1</h3>")
         .replace(/^## (.+)$/gm, "<h2>$1</h2>")
         .replace(/^# (.+)$/gm, "<h1>$1</h1>")
@@ -36,7 +36,7 @@
 
   editor.addEventListener("input", function () {
     render();
-    localStorage.setItem("md_editor_content", editor.value);
+    try { localStorage.setItem("md_editor_content", editor.value); } catch (e) {}
   });
 
   $("copyHtml").addEventListener("click", function () {

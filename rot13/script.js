@@ -11,7 +11,7 @@
   function caesar(text, shift) {
     return text.replace(/[a-zA-Z]/g, function (c) {
       var base = c <= "Z" ? 65 : 97;
-      return String.fromCharCode(((c.charCodeAt(0) - base + shift) % 26) + base);
+      return String.fromCharCode(((c.charCodeAt(0) - base + shift + 26) % 26) + base);
     });
   }
 

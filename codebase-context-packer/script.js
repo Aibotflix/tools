@@ -36,7 +36,7 @@
   function buildTree(files) {
     var root = {};
     files.forEach(function (f) {
-      var parts = f.rel.split("/");
+      var parts = f.path.split("/");
       var cur = root;
       parts.forEach(function (p, i) {
         if (!cur[p]) cur[p] = {};
