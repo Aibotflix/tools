@@ -13,10 +13,11 @@
   function render() {
     var text = editor.value;
     if (!text) { preview.innerHTML = '<p style="color:var(--muted)">Start typing Markdown on the left…</p>'; return; }
-    if (typeof marked !== "undefined") {
-      var parse = marked.parse || marked;
-      preview.innerHTML = parse(text, { html: false });
-    } else {
+    try {
+      var out = marked(text);
+      if (!out) throw 1;
+      preview.innerHTML = out;
+    } catch(e) {
       var safe = text.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
       var html = safe
         .replace(/^### (.+)$/gm, "<h3>$1</h3>")
