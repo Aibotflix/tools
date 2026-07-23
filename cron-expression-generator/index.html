@@ -4,36 +4,32 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cron Expression Generator | Boring Tools</title>
-<meta name="description" content="Generate cron expressions from human-readable schedules. See the next 5 run times instantly.">
+<meta name="description" content="Type a cron expression, see plain English and the next 5 run times instantly.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://Aibotflix.github.io/tools/cron-expression-generator/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Cron Expression Generator | Boring Tools">
-<meta property="og:description" content="Generate cron expressions from human-readable schedules.">
+<meta property="og:description" content="Type a cron expression, see plain English and the next 5 run times.">
 <meta property="og:url" content="https://Aibotflix.github.io/tools/cron-expression-generator/">
 <meta property="og:image" content="https://Aibotflix.github.io/tools/social-card.svg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Cron Expression Generator | Boring Tools">
-<meta name="twitter:description" content="Generate cron expressions from human-readable schedules.">
+<meta name="twitter:description" content="Type a cron expression, see plain English and the next 5 run times.">
 <meta name="twitter:image" content="https://Aibotflix.github.io/tools/social-card.svg">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="manifest" href="../site.webmanifest">
 <link rel="stylesheet" href="../style.css">
 <script type="application/ld+json">
-{ "@context":"https://schema.org","@type":"WebApplication","name":"Cron Expression Generator","applicationCategory":"UtilitiesApplication","url":"https://Aibotflix.github.io/tools/cron-expression-generator/","description":"Generate cron expressions from human-readable schedules and see the next 5 run times.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"browserRequires":"Requires JavaScript" }
+{ "@context":"https://schema.org","@type":"WebApplication","name":"Cron Expression Generator","applicationCategory":"UtilitiesApplication","url":"https://Aibotflix.github.io/tools/cron-expression-generator/","description":"Type a cron expression, see plain English and the next 5 run times.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"browserRequires":"Requires JavaScript" }
 </script>
 <script type="application/ld+json">
-{ "@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
-  {"@type":"ListItem","position":1,"name":"Home","item":"https://Aibotflix.github.io/tools/"},
-  {"@type":"ListItem","position":2,"name":"Developer Tools","item":"https://Aibotflix.github.io/tools/categories/?cat=developer-tools"},
-  {"@type":"ListItem","position":3,"name":"Cron Expression Generator"}
-]}
+{ "@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://Aibotflix.github.io/tools/"},{"@type":"ListItem","position":2,"name":"Developer Tools","item":"https://Aibotflix.github.io/tools/categories/?cat=developer-tools"},{"@type":"ListItem","position":3,"name":"Cron Expression Generator"}]}
 </script>
 <script type="application/ld+json">
 { "@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-  {"@type":"Question","name":"What is a cron expression?","acceptedAnswer":{"@type":"Answer","text":"A cron expression is a string of 5 or 6 fields that represents a schedule. Fields go left to right: minute, hour, day of month, month, day of week. The star (*) means every. For example, 0 9 * * 1-5 means 9:00 AM on weekdays."}},
-  {"@type":"Question","name":"What is the 6th field?","acceptedAnswer":{"@type":"Answer","text":"The optional 6th field is seconds. Most systems use 5-field cron (minute through weekday). Some implementations like Quartz and systemd support a leading seconds field."}},
-  {"@type":"Question","name":"How do I run something every 5 minutes?","acceptedAnswer":{"@type":"Answer","text":"Use */5 in the minute field: */5 * * * *. The slash means start at 0, then every 5 minutes. You can also write 0,5,10,15,20,25,30,35,40,45,50,55 for the same result."}}
+  {"@type":"Question","name":"What is a cron expression?","acceptedAnswer":{"@type":"Answer","text":"A string of 5 fields: minute hour day-of-month month day-of-week. Star (*) means every. Example: 0 9 * * 1-5 means 9:00 AM on weekdays."}},
+  {"@type":"Question","name":"How do I run something every 5 minutes?","acceptedAnswer":{"@type":"Answer","text":"*/5 * * * *. The slash means start at 0 then step by 5."}},
+  {"@type":"Question","name":"Does this support a seconds field?","acceptedAnswer":{"@type":"Answer","text":"No. This tool works with standard 5-field cron (minute through day-of-week)."}}
 ]}
 </script>
 </head>
@@ -42,86 +38,11 @@
 <main class="container">
   <div id="breadcrumbs"></div>
   <h1>Cron Expression Generator</h1>
-  <p class="lead">Build cron expressions from dropdowns. See the next 5 run times before you commit.</p>
+  <p class="lead">Type a cron expression. See what it means in plain English and when it next runs.</p>
   <div class="tool">
     <div class="field">
-      <label for="minute">Minute</label>
-      <div class="row tight" style="flex-wrap:wrap">
-        <select id="minuteType" style="width:auto">
-          <option value="every">Every</option>
-          <option value="specific">Specific</option>
-          <option value="everyN">Every N</option>
-          <option value="range">Range</option>
-          <option value="list">List</option>
-        </select>
-        <input id="minuteEveryN" type="number" min="1" max="59" value="5" style="display:none;width:80px" placeholder="N">
-        <input id="minuteRange" type="text" style="display:none;width:140px" placeholder="1-30">
-        <input id="minuteList" type="text" style="display:none;width:200px" placeholder="0,15,30,45">
-        <select id="minuteSpecific" multiple style="display:none;min-width:260px;max-height:120px">
-        </select>
-      </div>
-    </div>
-    <div class="field">
-      <label for="hour">Hour</label>
-      <div class="row tight" style="flex-wrap:wrap">
-        <select id="hourType" style="width:auto">
-          <option value="every">Every</option>
-          <option value="specific">Specific</option>
-          <option value="everyN">Every N</option>
-          <option value="range">Range</option>
-          <option value="list">List</option>
-        </select>
-        <input id="hourEveryN" type="number" min="1" max="23" value="1" style="display:none;width:80px" placeholder="N">
-        <input id="hourRange" type="text" style="display:none;width:140px" placeholder="9-17">
-        <input id="hourList" type="text" style="display:none;width:200px" placeholder="9,12,18">
-        <select id="hourSpecific" multiple style="display:none;min-width:260px;max-height:120px">
-        </select>
-      </div>
-    </div>
-    <div class="field">
-      <label for="dom">Day of month</label>
-      <div class="row tight" style="flex-wrap:wrap">
-        <select id="domType" style="width:auto">
-          <option value="every">Every</option>
-          <option value="specific">Specific</option>
-          <option value="everyN">Every N</option>
-          <option value="range">Range</option>
-        </select>
-        <input id="domEveryN" type="number" min="1" max="31" value="1" style="display:none;width:80px" placeholder="N">
-        <input id="domRange" type="text" style="display:none;width:140px" placeholder="1-15">
-        <select id="domSpecific" multiple style="display:none;min-width:260px;max-height:120px">
-        </select>
-      </div>
-    </div>
-    <div class="field">
-      <label for="month">Month</label>
-      <div class="row tight" style="flex-wrap:wrap">
-        <select id="monthType" style="width:auto">
-          <option value="every">Every</option>
-          <option value="specific">Specific</option>
-          <option value="everyN">Every N</option>
-          <option value="range">Range</option>
-        </select>
-        <input id="monthEveryN" type="number" min="1" max="12" value="1" style="display:none;width:80px" placeholder="N">
-        <input id="monthRange" type="text" style="display:none;width:140px" placeholder="1-6">
-        <select id="monthSpecific" multiple style="display:none;min-width:260px;max-height:120px">
-        </select>
-      </div>
-    </div>
-    <div class="field">
-      <label for="dow">Day of week</label>
-      <div class="row tight" style="flex-wrap:wrap">
-        <select id="dowType" style="width:auto">
-          <option value="every">Every</option>
-          <option value="specific">Specific</option>
-          <option value="everyN">Every N</option>
-          <option value="range">Range</option>
-        </select>
-        <input id="dowEveryN" type="number" min="0" max="6" value="1" style="display:none;width:80px" placeholder="N">
-        <input id="dowRange" type="text" style="display:none;width:140px" placeholder="1-5">
-        <select id="dowSpecific" multiple style="display:none;min-width:260px;max-height:120px">
-        </select>
-      </div>
+      <label for="cron">Cron expression</label>
+      <input id="cron" type="text" autocomplete="off" spellcheck="false" placeholder="*/5 * * * *" style="font-family:monospace;font-size:1.1rem;width:100%" value="*/5 * * * *">
     </div>
     <div class="field">
       <label>Presets</label>
@@ -137,10 +58,6 @@
       </div>
     </div>
     <div class="field">
-      <label for="cron">Generated expression</label>
-      <div class="output" id="cron" style="font-family:monospace;font-size:1.1rem;cursor:pointer" title="Click to copy"></div>
-    </div>
-    <div class="field">
       <label>Plain English</label>
       <div id="human" style="color:var(--muted)"></div>
     </div>
@@ -149,13 +66,12 @@
       <div id="nextRuns" style="font-size:.9rem;color:var(--muted)"></div>
     </div>
     <div class="status" id="status"></div>
+    <p style="font-size:.85rem;color:var(--muted);margin-top:14px">Fields: minute (0-59) · hour (0-23) · day-of-month (1-31) · month (1-12) · day-of-week (0=Sun, 6=Sat). <code>*</code> = every, <code>*/N</code> = every N, <code>1-5</code> = range, <code>1,3,5</code> = list.</p>
   </div>
   <h2>What is a cron expression?</h2>
-  <p>A cron expression is a string of 5 or 6 fields that represents a schedule. Fields go left to right: minute, hour, day of month, month, day of week. The star (*) means every. For example, <code>0 9 * * 1-5</code> means 9:00 AM on weekdays.</p>
-  <h2>What is the 6th field?</h2>
-  <p>The optional 6th field is seconds. Most systems use 5-field cron (minute through weekday). Some implementations like Quartz and systemd support a leading seconds field.</p>
+  <p>A cron expression is a string of 5 fields — minute, hour, day of month, month, day of week. Star (<code>*</code>) means every. For example, <code>0 9 * * 1-5</code> means 9:00 AM on weekdays.</p>
   <h2>How do I run something every 5 minutes?</h2>
-  <p>Use <code>*/5</code> in the minute field: <code>*/5 * * * *</code>. The slash means start at 0, then every 5 minutes. You can also write <code>0,5,10,15,20,25,30,35,40,45,50,55</code> for the same result.</p>
+  <p>Use <code>*/5</code> in the minute field: <code>*/5 * * * *</code>. The slash means start at 0, then every 5 minutes.</p>
   <div id="related-tools"></div>
 </main>
 <footer id="site-footer"></footer>

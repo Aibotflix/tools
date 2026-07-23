@@ -38,7 +38,7 @@
 { slug: "protobuf-decoder", title: "Protobuf Decoder", category: "developer-tools", description: "Decode protobuf binary data into a readable tree. Paste hex or base64 — auto-detects format.", keywords: ["protobuf","decoder","protocol","buffers","grpc","binary","wire","format"], related: ["jwt-decoder","base64"], priority: 0.9, featured: false },
     { slug: "token-counter",   title: "Token Counter",    category: "ai-prompting",     description: "Estimate how many tokens your text will use for different AI models.", keywords: ["token","counter","ai","gpt","claude","gemini","prompt","context","window"], related: ["word-counter"], priority: 0.9, featured: true },
     { slug: "gitignore-generator", title: ".gitignore Generator", category: "developer-tools", description: "Pick languages and frameworks to combine .gitignore templates from github/gitignore into one file.", keywords: ["gitignore","git","ignore","template","repo","project"], related: ["base64"], priority: 0.9, featured: false },
-    { slug: "codebase-context-packer", title: "Codebase Context Packer", category: "developer-tools", description: "Turn a folder into a Markdown blob with all file contents for pasting into an AI prompt.", keywords: ["codebase","context","prompt","llm","chatgpt","claude","folder","pack","markdown","ai"], related: ["token-counter"], priority: 0.9, featured: false }
+    { slug: "codebase-context-packer", title: "Codebase Context Packer", category: "ai-prompting", description: "Turn a folder into a Markdown blob with all file contents for pasting into an AI prompt.", keywords: ["codebase","context","prompt","llm","chatgpt","claude","folder","pack","markdown","ai"], related: ["token-counter"], priority: 0.9, featured: false }
   ];
 
   var FEATURED_TOOLS = [];
