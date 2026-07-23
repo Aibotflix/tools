@@ -1,86 +1,68 @@
 # Boring Tools
 
-A free, no-nonsense collection of online tools that run entirely in your browser. Static HTML/CSS/JS — no build step, no framework, no tracking. Hosted free on GitHub Pages and staged to be monetized later.
+**27 free online tools — no signup, no ads, no tracking.** Everything runs in your browser. Nothing is uploaded to any server.
 
-```
-boring/
-├── index.html               # homepage — tool directory + SEO/FAQ landing
-├── style.css                # shared styles (light + dark, responsive)
-├── about.html               # trust page (AdSense requires one)
-├── privacy.html             # privacy policy (AdSense requires one)
-├── 404.html                 # self-styled — paths don't matter on 404s
-├── robots.txt               # allow all + sitemap
-├── sitemap.xml              # static list — add a line per tool
-├── .nojekyll                # serve files as-is, skip Jekyll
-├── password-generator/      # secure crypto RNG password generator
-├── word-counter/            # live word/char/reading counts
-├── case-converter/         # UPPER / lower / Title / camelCase / snake_case …
-├── uuid-generator/         # RFC 4122 v4 UUIDs, crypto RNG
-├── base64/                 # UTF-8-safe Base64 encode/decode
-├── json-formatter/         # pretty-print / minify / validate
-├── unit-converter/         # length, weight, temperature
-└── lorem-ipsum/            # placeholder paragraphs
-  # each tool folder contains a single index.html with inline JS — no deps, no build step
-```
+**[→ Use the tools at boringtools.org](https://Aibotflix.github.io/tools/)**
 
-## Quick start (deploy to GitHub Pages)
+---
 
-1. Create a **public** repository on GitHub (e.g. `boring-tools`).
-2. Push this folder:
-   ```sh
-   git init
-   git add .
-   git commit -m "Initial boring tools site"
-   git branch -M main
-   git remote add origin https://github.com/Aibotflix/tools.git
-   git push -u origin main
-   ```
-3. In the repo: **Settings → Pages → Source = "Deploy from a branch"**, branch = `main`, folder = `/ (root)`, **Save**.
-4. After ~1 minute it's live at `https://Aibotflix.github.io/tools/`.
+## What you'll find
 
-No GitHub Actions workflow needed — there's no build step. If you add one later, switch Pages source to "GitHub Actions" and add a workflow.
+### Text & Writing
+**Word Counter** — characters, words, sentences, reading time as you type.  
+**Case Converter** — UPPER, lower, Title, camelCase, snake_case, and more.  
+**Lorem Ipsum Generator** — placeholder paragraphs for layouts.  
+**Text Diff Checker** — compare two texts side by side, see what changed.
 
-## Configure (one-time)
+### Code Formatters
+**JSON Formatter** — beautify, minify, validate with clear error messages.  
+**Markdown Preview Editor** — write Markdown, see live rendered preview.  
+**Regex Tester & Debugger** — test patterns with match highlighting and group capture.  
+**Protobuf Decoder** — decode binary protobuf data into a readable tree.
 
-The site files are already configured for `Aibotflix/tools` (canonical/OG URLs, `robots.txt`, `sitemap.xml`, and the GitHub links in About/Privacy). If you fork this repo to your own username/repo, swap them out with PowerShell — `-creplace` is case-sensitive, so it won't mangle the word "repository":
+### Encoders & Converters
+**Base64 Encode / Decode** — full UTF-8 support.  
+**URL Encoder & Decoder** — percent-encoding for international characters.  
+**Binary Decimal Hex Converter** — convert between bases instantly.  
+**Rot13 & Caesar Cipher** — encode and decode with custom shift.  
+**Color Converter** — HEX, RGB, HSL with live swatch and color picker.
 
-```powershell
-$u='your-username'; $r='your-repo'
-Get-ChildItem -Recurse -Include *.html,*.xml,*.txt | ForEach-Object {
-  (Get-Content $_.FullName) -creplace 'USERNAME',$u -creplace 'REPO',$r |
-    Set-Content -Encoding utf8 $_.FullName
-}
-```
+### Data Converters
+**CSV to JSON Converter** — handles quoted fields and edge cases.  
+**JSON to CSV Converter** — flattens nested objects and arrays.  
+**Unit Converter** — length, weight, temperature.  
+**Timestamp Converter** — Unix to date and back, auto-detects seconds vs milliseconds.
 
-Then global-find/replace the brand name **Boring Tools** if you want a different name.
+### Generators
+**UUID Generator** — RFC 4122 v4, crypto RNG.  
+**QR Code Generator** — custom size, colors, error correction. Download PNG or SVG.  
+**Cron Expression Generator** — dropdowns with next 5 run times.  
+**.gitignore Generator** — pick languages and frameworks, combine into one file.
 
-## Add a new tool
+### Security & Tokens
+**Password Generator** — strong random passwords, secure crypto RNG.  
+**Hash Generator** — MD5, SHA-1, SHA-256, SHA-512.  
+**HMAC Generator** — HMAC-SHA256 and HMAC-SHA512 signatures.  
+**JWT Decoder** — see header, payload, expiration instantly.
 
-1. Copy `password-generator/` to a new folder, e.g. `word-counter/`.
-2. In its `index.html`: update `<title>`, meta description, `canonical`/`og:url`, the `<h1>`, and the tool UI + `<script>` (it links `../style.css`).
-3. Add a card to `index.html` inside `<ul class="cards">` linking to the new folder.
-4. Add the URL to `sitemap.xml`.
-5. Commit and push — it's live.
+### AI & Prompting
+**Token Counter** — estimate tokens for GPT, Claude, Gemini models.  
+**Codebase Context Packer** — turn a folder into a Markdown blob for AI prompts.
 
-Each tool lives in its own folder with inline JavaScript, so there's nothing to wire up: drop in a page, link it, list it.
+---
 
-## Monetize later (the realistic path)
+**[Browse all 27 tools →](https://Aibotflix.github.io/tools/)**
 
-The site is staged for ads **without** turning them on yet:
+No account. No API keys. No rate limits. Open a page and it works.
 
-- **Ad slots** are marked `<!-- TODO: ad slot ... -->` in the templates. Don't add AdSense until approved.
-- **Trust pages** AdSense requires are already here: About, Privacy, clear nav.
+---
 
-To turn on Google AdSense once you have real traffic and original content:
-1. Apply at adsense.google.com and get the site approved.
-2. Add the AdSense `<script>` to each page's `<head>` and drop `<ins class="adsbygoogle">` units into the TODO slots.
-3. Flesh out `privacy.html`'s "If we add advertising" section with the specifics once live; it already warns users ads may introduce cookies.
+## Why this exists
 
-Honest reality check:
-- Revenue = traffic × RPM. "Thousands a month" sites have many useful tools, good keyword coverage, and years of domain authority. Plan for 6–12+ months of SEO before meaningful income.
-- Lower-competition niches (specific calculators, converters, dev tools) beat saturated ones. Pick tools people search for that aren't already dominated.
-- AdSense alternatives: affiliate links, a Ko-fi/"Buy Me a Coffee" button, or paid premium features. No one option needs to be decided now.
+Most "free" online tools are cluttered with ads, popups, and trackers. Boring Tools does one thing: gives you a fast, clean tool and gets out of your way. Everything runs client-side — your data never touches a server.
 
-## Why vanilla (no framework)
+Built with vanilla HTML, CSS, and JavaScript. No frameworks. No build step. No dependencies.
 
-A boring tool site should run for years with zero maintenance. Frameworks go out of date; vanilla HTML/CSS/JS doesn't. No build step means deploys are just `git push`, and the site loads fast — which is what Google and users reward.
+---
+
+*Boring Tools — the boring choice that just works.*
