@@ -54,6 +54,8 @@
   </div>
   <h2>Why is UTF-8 support important for Base64?</h2>
   <p>Many naive Base64 tools use <code>atob</code>/<code>btoa</code> directly and mangle any character outside ASCII. This converter encodes through the UTF-8 byte stream first, so emoji, CJK characters and accents round-trip correctly.</p>
+  <h2>Is Base64 encoding secure?</h2>
+  <p>Not at all. Base64 just turns binary data into text so it can be sent over text-based protocols. Anyone can decode it. It's not encryption.</p>
   <div id="related-tools"></div>
 </main>
 <footer id="site-footer"></footer>

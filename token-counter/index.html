@@ -106,6 +106,12 @@
     </div>
     <p class="small">For precise counts, use the provider's own tokenizer: <a href="https://platform.openai.com/tokenizer" target="_blank" rel="noopener">OpenAI Tokenizer</a> · <a href="https://console.anthropic.com/count-tokens" target="_blank" rel="noopener">Anthropic Count Tokens</a> · <a href="https://ai.google.dev/gemini-api/docs/tokens" target="_blank" rel="noopener">Gemini token docs</a></p>
 
+  <h2>How does the token counter estimate my text?</h2>
+  <p>Different models use different tokenizers, so one model might split "hello world" into 2 tokens while another uses 1. This tool uses the chars-per-token ratios published by each provider — roughly 4 characters per token for OpenAI and Gemini, closer to 3.8 for newer Anthropic models. It's a rough estimate. For an exact count, use the provider's own tokenizer.</p>
+  <h2>Which models are supported?</h2>
+  <p>OpenAI (GPT-5, GPT-4o, GPT-4.1, o-series), Anthropic Claude (Opus 4.8, Sonnet 5, Fable 5, Mythos 5, Haiku 4, plus older models), and Google Gemini 2.x / 1.5. Pick the model from the dropdown and the tool picks the right ratio.</p>
+  <h2>Is my text uploaded?</h2>
+  <p>Nope. Everything runs in your browser. Nothing you type leaves your device.</p>
     <div id="related-tools"></div>
   </main>
   <footer id="site-footer"></footer>

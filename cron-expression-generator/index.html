@@ -20,7 +20,7 @@
 <link rel="manifest" href="../site.webmanifest">
 <link rel="stylesheet" href="../style.css">
 <script type="application/ld+json">
-{ "@context":"https://schema.org","@type":"WebApplication","name":"Cron Expression Generator","applicationCategory":"UtilitiesApplication","url":"https://Aibotflix.github.io/tools/cron-expression-generator/","description":"Type a cron expression, see plain English and the next 5 run times.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"browserRequires":"Requires JavaScript" }
+{ "@context":"https://schema.org","@type":"WebApplication","name":"Cron Expression Generator","applicationCategory":"UtilitiesApplication","url":"https://Aibotflix.github.io/tools/cron-expression-generator/","description":"Type a cron expression, see plain English and the next 5 run times.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"browserRequirements":"Requires JavaScript" }
 </script>
 <script type="application/ld+json">
 { "@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://Aibotflix.github.io/tools/"},{"@type":"ListItem","position":2,"name":"Developer Tools","item":"https://Aibotflix.github.io/tools/categories/?cat=developer-tools"},{"@type":"ListItem","position":3,"name":"Cron Expression Generator"}]}
@@ -72,6 +72,8 @@
   <p>A cron expression is a string of 5 fields — minute, hour, day of month, month, day of week. Star (<code>*</code>) means every. For example, <code>0 9 * * 1-5</code> means 9:00 AM on weekdays.</p>
   <h2>How do I run something every 5 minutes?</h2>
   <p>Use <code>*/5</code> in the minute field: <code>*/5 * * * *</code>. The slash means start at 0, then every 5 minutes.</p>
+  <h2>Does this support a seconds field?</h2>
+  <p>No. This tool uses standard 5-field cron — minute, hour, day-of-month, month, day-of-week. Some systems like Quartz and systemd support an optional leading seconds field, but this generator doesn't.</p>
   <div id="related-tools"></div>
 </main>
 <footer id="site-footer"></footer>

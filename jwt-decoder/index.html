@@ -20,7 +20,7 @@
 <link rel="manifest" href="../site.webmanifest">
 <link rel="stylesheet" href="../style.css">
 <script type="application/ld+json">
-{ "@context":"https://schema.org","@type":"WebApplication","name":"JWT Decoder","applicationCategory":"DeveloperApplication","url":"https://Aibotflix.github.io/tools/jwt-decoder/","description":"Decode JSON Web Tokens instantly. See header, payload and signature.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"browserRequires":"Requires JavaScript" }
+{ "@context":"https://schema.org","@type":"WebApplication","name":"JWT Decoder","applicationCategory":"DeveloperApplication","url":"https://Aibotflix.github.io/tools/jwt-decoder/","description":"Decode JSON Web Tokens instantly. See header, payload and signature.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"browserRequirements":"Requires JavaScript" }
 </script>
 <script type="application/ld+json">
 { "@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
@@ -71,6 +71,8 @@
   <p>JSON Web Token (JWT) is a compact, URL-safe token format used for authentication. It has three parts: header (algorithm), payload (claims), and signature.</p>
   <h2>Is it safe to paste my JWT here?</h2>
   <p>Yes. Decoding happens in your browser — the token is never sent to a server. JWTs are encoded, not encrypted, so decoding just makes the readable content visible.</p>
+  <h2>Can this tool verify a JWT signature?</h2>
+  <p>No. Verifying a signature needs the secret key or public certificate. This tool just decodes the header and payload so you can read them.</p>
   <div id="related-tools"></div>
 </main>
 <footer id="site-footer"></footer>
