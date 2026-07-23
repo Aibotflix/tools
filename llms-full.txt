@@ -4,7 +4,7 @@
 
 ## What is Boring Tools?
 
-Boring Tools is a collection of 21 free, browser-based utilities for developers, writers, students, and anyone who needs a quick conversion, generation, or transformation task done. No data is sent to any server, no cookies are set, no analytics are collected.
+Boring Tools is a collection of 25 free, browser-based utilities for developers, writers, students, and anyone who needs a quick conversion, generation, or transformation task done. No data is sent to any server, no cookies are set, no analytics are collected.
 
 The site is hosted on GitHub Pages and the source code is open.
 
@@ -36,6 +36,10 @@ Everything runs locally in your browser. Nothing you type is stored or sent anyw
 - **QR Code Generator**: Generate QR codes for any URL, text or data. Choose size (128–1024px), error correction level (L/M/Q/H), foreground and background colors. Download as PNG or SVG.
 - **Cron Expression Generator**: Build cron expressions interactively using dropdowns for each field (minute, hour, day of month, month, day of week). Supports every, specific, every-N, range, and list modes. Includes common presets (every minute, daily 9 AM, weekdays, etc.). Shows a plain-English description and the next 5 scheduled run times so you can verify the expression before using it.
 - **Protobuf Decoder**: Decode Protocol Buffers binary data into a readable tree structure. Accepts hex-encoded or base64-encoded input (auto-detected). Shows field numbers, wire types (varint, 64-bit, length-delimited, 32-bit), and decoded values including strings, integers, and nested messages. Handles repeated fields, nested structures, and truncated data gracefully.
+- **URL Debugger**: Paste a URL and see it broken down. Decoded URL, parsed params, duplicates flagged, encoding issues highlighted, clean URL rebuilt.
+- **Request Converter**: Pick a method, add a URL and headers, optional body. Get the same request in Fetch, Axios, and cURL. Click to copy.
+- **CSS Flex/Grid Playground**: Tweak Flexbox and Grid properties, see the layout update. Switch between flex and grid modes, adjust alignment, gap, direction, grid columns. Shows the generated CSS.
+- **JS Object Explorer**: Paste a JS object and browse it like a file tree. Collapse nested objects and arrays, see types and values at a glance.
 
 ### Converters
 
@@ -59,7 +63,7 @@ Everything runs locally in your browser. Nothing you type is stored or sent anyw
 ## Categories
 
 - **Text & Writing**: word-counter, case-converter, lorem-ipsum
-- **Developer Tools**: json-formatter, base64, uuid-generator, timestamp-converter, url-encoder, binary-converter, jwt-decoder, rot13, markdown-preview, regex-tester, csv-json, qr-code, cron-expression-generator, protobuf-decoder
+- **Developer Tools**: json-formatter, base64, uuid-generator, timestamp-converter, url-encoder, binary-converter, jwt-decoder, rot13, markdown-preview, regex-tester, csv-json, qr-code, cron-expression-generator, protobuf-decoder, env-diff
 - **Converters**: unit-converter
 - **Security & Privacy**: password-generator, hash-generator, hmac-generator
 

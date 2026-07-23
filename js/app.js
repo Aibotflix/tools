@@ -14,7 +14,8 @@
     { slug: "design-tools", title: "Design Tools", description: "Convert colors and check contrast ratios for accessible design." },
     { slug: "generators", title: "Generators", description: "Generate UUIDs, QR codes, cron expressions and .gitignore files." },
     { slug: "security-tools", title: "Security & Tokens", description: "Generate passwords, hashes, HMAC signatures and decode JWT tokens." },
-    { slug: "ai-prompting", title: "AI & Prompting", description: "Count tokens, estimate prompt costs and prepare code context for AI tools." }
+    { slug: "ai-prompting", title: "AI & Prompting", description: "Count tokens, estimate prompt costs and prepare code context for AI tools." },
+    { slug: "developer-tools", title: "Developer Tools", description: "Compare .env files, debug URLs, convert API requests and more." }
   ];
 
   var TOOLS = [
@@ -46,7 +47,12 @@
     { slug: "color-converter", title: "Color Converter", category: "design-tools", description: "Convert colors between HEX, RGB and HSL with a live preview swatch.", keywords: ["color","converter","hex","rgb","hsl","css","design","preview"], related: ["color-contrast","json-formatter"], priority: 0.9, featured: true },
     { slug: "json-to-csv", title: "JSON to CSV Converter", category: "data-converters", description: "Convert JSON arrays into CSV spreadsheets. Handles nested objects and arrays.", keywords: ["json","csv","converter","array","export","flatten","nested","data"], related: ["csv-json","json-formatter"], priority: 0.9, featured: true },
     { slug: "color-contrast", title: "Color Contrast Checker", category: "design-tools", description: "See if two colors have enough contrast for readable text. Shows WCAG AA and AAA pass/fail.", keywords: ["color","contrast","checker","wcag","accessibility","a11y","ratio","aa","aaa","design"], related: ["color-converter"], priority: 0.9, featured: true },
-    { slug: "css-minifier", title: "CSS Minifier", category: "code-formatters", description: "Shrink your CSS by stripping whitespace, comments and extra characters. Just paste and copy.", keywords: ["css","minifier","compress","minify","optimize","performance","stylesheet","code"], related: ["json-formatter","markdown-preview"], priority: 0.9, featured: true }
+    { slug: "css-minifier", title: "CSS Minifier", category: "code-formatters", description: "Shrink your CSS by stripping whitespace, comments and extra characters. Just paste and copy.", keywords: ["css","minifier","compress","minify","optimize","performance","stylesheet","code"], related: ["json-formatter","markdown-preview"], priority: 0.9, featured: true },
+    { slug: "env-diff", title: "Environment Variable Diff", category: "developer-tools", description: "Compare .env files side by side. Find missing keys, changed values, duplicates, and unused variables.", keywords: ["env","environment","variable","diff","compare","dotenv","configuration","secret"], related: ["json-formatter","text-diff"], priority: 0.9, featured: true },
+    { slug: "url-debugger", title: "URL Debugger", category: "developer-tools", description: "Paste a URL and see it broken down. Decoded, parsed, duplicates flagged, encoding checked.", keywords: ["url","debugger","parse","decode","parameters","query","encoding","percent"], related: ["url-encoder","env-diff"], priority: 0.9, featured: true },
+    { slug: "request-converter", title: "Fetch → Axios → cURL Converter", category: "developer-tools", description: "Pick a method, add a URL, set some headers. Get the same request in Fetch, Axios, and cURL.", keywords: ["request","fetch","axios","curl","http","api","converter","code","generator"], related: ["json-formatter","env-diff"], priority: 0.9, featured: true },
+    { slug: "flex-grid-playground", title: "CSS Flex/Grid Playground", category: "developer-tools", description: "Tweak Flexbox and Grid properties, see what changes. A playground for CSS layouts.", keywords: ["css","flexbox","grid","playground","layout","interactive","preview"], related: ["css-minifier","color-converter"], priority: 0.9, featured: true },
+    { slug: "js-object-explorer", title: "JavaScript Object Explorer", category: "developer-tools", description: "Paste a JS object and browse it like a file tree. Collapse, expand, see types and values.", keywords: ["json","object","explorer","tree","inspect","browse","nested"], related: ["json-formatter","protobuf-decoder"], priority: 0.9, featured: true }
   ];
 
   var FEATURED_TOOLS = [];

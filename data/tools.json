@@ -236,6 +236,56 @@
       "related": ["jwt-decoder", "base64"],
       "priority": 0.9,
       "featured": false
+    },
+    {
+      "slug": "env-diff",
+      "title": "Environment Variable Diff",
+      "category": "developer-tools",
+      "description": "Compare .env files side by side. Find missing keys, changed values, duplicates, and unused variables.",
+      "keywords": ["env", "environment", "variable", "diff", "compare", "dotenv", "configuration", "secret"],
+      "related": ["json-formatter", "text-diff"],
+      "priority": 0.9,
+      "featured": true
+    },
+    {
+      "slug": "url-debugger",
+      "title": "URL Debugger",
+      "category": "developer-tools",
+      "description": "Paste a URL and see it broken down. Decoded, parsed, duplicates flagged, encoding checked.",
+      "keywords": ["url", "debugger", "parse", "decode", "parameters", "query", "encoding", "percent"],
+      "related": ["url-encoder", "env-diff"],
+      "priority": 0.9,
+      "featured": true
+    },
+    {
+      "slug": "request-converter",
+      "title": "Fetch → Axios → cURL Converter",
+      "category": "developer-tools",
+      "description": "Pick a method, add a URL, set some headers. Get the same request in Fetch, Axios, and cURL.",
+      "keywords": ["request", "fetch", "axios", "curl", "http", "api", "converter", "code", "generator"],
+      "related": ["json-formatter", "env-diff"],
+      "priority": 0.9,
+      "featured": true
+    },
+    {
+      "slug": "flex-grid-playground",
+      "title": "CSS Flex/Grid Playground",
+      "category": "developer-tools",
+      "description": "Tweak Flexbox and Grid properties, see what changes. A playground for CSS layouts.",
+      "keywords": ["css", "flexbox", "grid", "playground", "layout", "interactive", "preview"],
+      "related": ["css-minifier", "color-converter"],
+      "priority": 0.9,
+      "featured": true
+    },
+    {
+      "slug": "js-object-explorer",
+      "title": "JavaScript Object Explorer",
+      "category": "developer-tools",
+      "description": "Paste a JS object and browse it like a file tree. Collapse, expand, see types and values.",
+      "keywords": ["json", "object", "explorer", "tree", "inspect", "browse", "nested"],
+      "related": ["json-formatter", "protobuf-decoder"],
+      "priority": 0.9,
+      "featured": true
     }
   ]
 }

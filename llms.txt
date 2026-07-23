@@ -2,7 +2,7 @@
 
 > Free online tools that run in your browser. Nothing to install, no sign-up.
 
-Boring Tools is a collection of 24 browser-based utilities for developers, writers, and anyone who needs a quick conversion or generation task done. No data is sent to any server.
+Boring Tools is a collection of 34 browser-based utilities for developers, writers, and anyone who needs a quick conversion or generation task done. No data is sent to any server.
 
 ## Browse categories
 
@@ -35,6 +35,11 @@ Boring Tools is a collection of 24 browser-based utilities for developers, write
 - Cron Expression Generator: Build cron expressions from dropdowns and presets. See the next 5 run times before you commit.
 - Protobuf Decoder: Decode protobuf binary data (hex or base64) into a readable tree structure showing field numbers, wire types, and values.
 - .gitignore Generator: Pick languages, frameworks and tools to combine matching templates from github/gitignore into a single .gitignore file. Add your own rules or download the result.
+- Environment Variable Diff: Compare .env files side by side. Find missing keys, changed values, duplicates, and unused variables across .env, .env.local, .env.production.
+- URL Debugger: Paste a URL and see it broken down. Decoded, parsed, checked for issues.
+- Request Converter: Get the same HTTP request in Fetch, Axios, and cURL.
+- Flex/Grid Playground: Tweak Flexbox and Grid properties, see what changes.
+- JS Object Explorer: Paste a JS object and browse it like a file tree. Collapse, expand, see what's inside.
 
 ### Converters
 - Unit Converter: Convert length (miles, km, meters, feet), weight (kg, lbs, grams, ounces) and temperature (Celsius, Fahrenheit, Kelvin).

@@ -10,6 +10,7 @@
   <url><loc>https://Aibotflix.github.io/tools/categories/?cat=generators</loc><priority>0.6</priority></url>
   <url><loc>https://Aibotflix.github.io/tools/categories/?cat=security-tools</loc><priority>0.6</priority></url>
   <url><loc>https://Aibotflix.github.io/tools/categories/?cat=ai-prompting</loc><priority>0.6</priority></url>
+  <url><loc>https://Aibotflix.github.io/tools/categories/?cat=developer-tools</loc><priority>0.6</priority></url>
   <url><loc>https://Aibotflix.github.io/tools/password-generator/</loc><priority>0.8</priority></url>
   <url><loc>https://Aibotflix.github.io/tools/word-counter/</loc><priority>0.8</priority></url>
   <url><loc>https://Aibotflix.github.io/tools/case-converter/</loc><priority>0.8</priority></url>
@@ -39,6 +40,11 @@
   <url><loc>https://Aibotflix.github.io/tools/json-to-csv/</loc><priority>0.9</priority></url>
   <url><loc>https://Aibotflix.github.io/tools/color-contrast/</loc><priority>0.9</priority></url>
   <url><loc>https://Aibotflix.github.io/tools/css-minifier/</loc><priority>0.9</priority></url>
+  <url><loc>https://Aibotflix.github.io/tools/env-diff/</loc><priority>0.9</priority></url>
+  <url><loc>https://Aibotflix.github.io/tools/url-debugger/</loc><priority>0.9</priority></url>
+  <url><loc>https://Aibotflix.github.io/tools/request-converter/</loc><priority>0.9</priority></url>
+  <url><loc>https://Aibotflix.github.io/tools/flex-grid-playground/</loc><priority>0.9</priority></url>
+  <url><loc>https://Aibotflix.github.io/tools/js-object-explorer/</loc><priority>0.9</priority></url>
   <url><loc>https://Aibotflix.github.io/tools/about.html</loc><priority>0.3</priority></url>
   <url><loc>https://Aibotflix.github.io/tools/contact.html</loc><priority>0.3</priority></url>
   <url><loc>https://Aibotflix.github.io/tools/privacy.html</loc><priority>0.3</priority></url>
