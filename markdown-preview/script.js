@@ -14,7 +14,8 @@
     var text = editor.value;
     if (!text) { preview.innerHTML = '<p style="color:var(--muted)">Start typing Markdown on the left…</p>'; return; }
     if (typeof marked !== "undefined") {
-      preview.innerHTML = marked.parse(text, { html: false });
+      var parse = marked.parse || marked;
+      preview.innerHTML = parse(text, { html: false });
     } else {
       var safe = text.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
       var html = safe
