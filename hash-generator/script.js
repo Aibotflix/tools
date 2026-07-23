@@ -109,7 +109,8 @@
       setStatus(""); return;
     }
     var buf = new TextEncoder().encode(text);
-    $("md5").textContent = md5(text);
+    var byteStr = Array.from(buf).map(function (b) { return String.fromCharCode(b); }).join("");
+    $("md5").textContent = md5(byteStr);
     try {
       var sha1Buf = await crypto.subtle.digest("SHA-1", buf);
       $("sha1").textContent = toHex(sha1Buf);
