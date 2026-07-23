@@ -193,10 +193,38 @@
     });
   }
 
+  // --- FAQ from schema ---
+  function injectFAQ() {
+    var main = document.querySelector("main.container");
+    if (!main) return;
+    var headings = main.querySelectorAll("h2");
+    for (var h = 0; h < headings.length; h++) {
+      var txt = headings[h].textContent.trim();
+      if (txt === "FAQ" || txt.indexOf("?") !== -1) return;
+    }
+    var scripts = document.querySelectorAll('script[type="application/ld+json"]');
+    for (var i = 0; i < scripts.length; i++) {
+      try {
+        var data = JSON.parse(scripts[i].textContent);
+        if (data["@type"] === "FAQPage" && data.mainEntity && data.mainEntity.length) {
+          var html = '<h2>FAQ</h2>';
+          for (var j = 0; j < data.mainEntity.length; j++) {
+            var q = data.mainEntity[j];
+            html += '<h3>' + q.name + '</h3><p>' + q.acceptedAnswer.text + '</p>';
+          }
+          var main = document.querySelector("main.container");
+          if (main) main.insertAdjacentHTML("beforeend", html);
+          break;
+        }
+      } catch(e) {}
+    }
+  }
+
   // --- Init ---
   injectHeader();
   injectFooter();
   injectBreadcrumbs();
+  injectFAQ();
   initMenu();
   initSearch();
 
