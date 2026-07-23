@@ -6,6 +6,16 @@
     siteName: "Boring Tools"
   };
 
+  // --- Theme color / noindex ---
+  function injectMeta() {
+    var m = document.createElement("meta"); m.name = "theme-color"; m.content = "#0a0a0f";
+    document.head.appendChild(m);
+    if (location.search.indexOf("cat=") !== -1) {
+      var r = document.createElement("meta"); r.name = "robots"; r.content = "noindex, follow";
+      document.head.appendChild(r);
+    }
+  }
+
   var CATEGORIES = [
     { slug: "text-writing", title: "Text & Writing", description: "Count words, convert case, compare text diffs and generate placeholder text." },
     { slug: "code-formatters", title: "Code Formatters", description: "Format, preview and validate JSON, Markdown, Regex and Protobuf data." },
@@ -100,6 +110,7 @@
           '<a href="' + CONFIG.baseUrl + '/contact.html">Contact</a>' +
           '<a href="' + CONFIG.baseUrl + '/privacy.html">Privacy</a>' +
           '<a href="' + CONFIG.baseUrl + '/terms.html">Terms</a>' +
+          '<a href="' + CONFIG.baseUrl + '/llms.txt">AI / LLMs</a>' +
         '</nav>' +
         '<span>&copy; 2026 ' + CONFIG.siteName + '</span>' +
       '</div></footer>';
@@ -221,6 +232,7 @@
   }
 
   // --- Init ---
+  injectMeta();
   injectHeader();
   injectFooter();
   injectBreadcrumbs();
