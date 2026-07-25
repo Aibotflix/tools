@@ -4,7 +4,7 @@
 
 ## What is Boring Tools?
 
-Boring Tools is a collection of 34 free, browser-based utilities for developers, writers, students, and anyone who needs a quick conversion, generation, or transformation task done. No data is sent to any server, no cookies are set, no analytics are collected.
+Boring Tools is a collection of 35 free, browser-based utilities for developers, writers, students, and anyone who needs a quick conversion, generation, or transformation task done. No data is sent to any server, no cookies are set, no analytics are collected.
 
 The site is hosted on GitHub Pages and the source code is open.
 
@@ -51,6 +51,12 @@ Everything runs locally in your browser. Nothing you type is stored or sent anyw
 - **Hash Generator**: Generate MD5, SHA-1, SHA-256 and SHA-512 hashes from any text. SHA hashes use the Web Crypto API (`crypto.subtle.digest`). MD5 is implemented in pure JavaScript. Click any hash to copy.
 - **HMAC Generator**: Generate HMAC-SHA256 and HMAC-SHA512 signatures from a message and secret key using the Web Crypto API (`crypto.subtle.sign`). Supports hex (lowercase/uppercase) and Base64 output encoding. Useful for verifying API request authenticity, validating webhook payloads, and signing data.
 
+### AI & Prompting
+
+- **Token Counter**: Estimate how many tokens your prompt will use across OpenAI, Anthropic, Google Gemini and Kimi models. Browser-based, no upload.
+- **Codebase Context Packer**: Drop a folder and get a single Markdown file with all source code contents, ready to paste into an AI prompt. Binary files are skipped. Runs in your browser.
+- **AI Prompt Cost Calculator**: Paste your prompt, pick an expected output length, see the dollar cost across GPT-5.6 (Sol / Terra / Luna), GPT-5.5, GPT-5.4 mini / nano, Claude Fable 5, Opus 5, Sonnet 5, Haiku 4.5, and Moonshot Kimi K3 / K2.7 Code / K2.6. Highlights the cheapest model. Uses each provider's published per-million-token rates (verified 25 July 2026) and a 1 token per ~4 characters estimate (real tokenization can vary 10-30%). Pure client-side — your prompt is never uploaded.
+
 ## Technical Details
 
 - Static HTML, CSS, and JavaScript — no build step, no framework
@@ -62,10 +68,15 @@ Everything runs locally in your browser. Nothing you type is stored or sent anyw
 
 ## Categories
 
-- **Text & Writing**: word-counter, case-converter, lorem-ipsum
-- **Developer Tools**: json-formatter, base64, uuid-generator, timestamp-converter, url-encoder, binary-converter, jwt-decoder, rot13, markdown-preview, regex-tester, csv-json, qr-code, cron-expression-generator, protobuf-decoder, env-diff
-- **Converters**: unit-converter
-- **Security & Privacy**: password-generator, hash-generator, hmac-generator
+- **Text & Writing**: word-counter, case-converter, lorem-ipsum, text-diff
+- **Code Formatters**: json-formatter, markdown-preview, regex-tester, protobuf-decoder, css-minifier
+- **Encoders & Converters**: base64, url-encoder, binary-converter, rot13
+- **Data Converters**: unit-converter, csv-json, json-to-csv, timestamp-converter
+- **Design Tools**: color-converter, color-contrast
+- **Generators**: uuid-generator, qr-code, cron-expression-generator, gitignore-generator
+- **Security & Tokens**: password-generator, hash-generator, hmac-generator, jwt-decoder
+- **AI & Prompting**: token-counter, codebase-context-packer, ai-prompt-cost-calculator
+- **Developer Tools**: env-diff, url-debugger, request-converter, flex-grid-playground, js-object-explorer
 
 ## Contact
 

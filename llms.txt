@@ -2,7 +2,7 @@
 
 > Free online tools that run in your browser. Nothing to install, no sign-up.
 
-Boring Tools is a collection of 34 browser-based utilities for developers, writers, and anyone who needs a quick conversion or generation task done. No data is sent to any server.
+Boring Tools is a collection of 35 browser-based utilities for developers, writers, and anyone who needs a quick conversion or generation task done. No data is sent to any server.
 
 ## Browse categories
 
@@ -10,7 +10,7 @@ Boring Tools is a collection of 34 browser-based utilities for developers, write
 - Developer Tools: JSON Formatter, Base64, UUID, Timestamp, URL Encoder, Binary/Hex, JWT, Rot13, Markdown Preview, Regex Tester, CSV↔JSON, QR Code Generator, Cron Expression Generator, Protobuf Decoder, .gitignore Generator
 - Converters: Unit Converter
 - Security & Privacy: Password Generator, Hash Generator, HMAC Generator
-- AI & Prompting: Token Counter, Codebase Context Packer
+- AI & Prompting: Token Counter, Codebase Context Packer, AI Prompt Cost Calculator
 
 ## Tools
 
@@ -52,6 +52,7 @@ Boring Tools is a collection of 34 browser-based utilities for developers, write
 ### AI & Prompting
 - Token Counter: Estimate how many tokens your prompt uses for OpenAI GPT-5/4o/o-series, Anthropic Claude (Opus 4.8, Sonnet 5, Fable 5, Mythos 5, Haiku 4), and Google Gemini 2.x. Based on publicly documented chars-per-token ratios — not an exact count. Works in the browser, nothing is uploaded.
 - Codebase Context Packer: Drop a local folder, get a single Markdown file with all source code contents — ready to paste into a ChatGPT, Claude or Gemini prompt. Binary files are skipped. Runs in the browser, nothing uploaded.
+- AI Prompt Cost Calculator: Paste your prompt, pick an expected output length, see the dollar cost across GPT-5.6 (Sol/Terra/Luna), GPT-5.5, GPT-5.4 mini/nano, Claude Fable 5, Opus 5, Sonnet 5, Haiku 4.5, and Kimi K3/K2.7 Code/K2.6. Highlights the cheapest model. Uses each provider's published per-million-token rates (verified 25 July 2026). Pure client-side.
 
 ## How it works
 

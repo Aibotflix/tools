@@ -1,6 +1,6 @@
 # Boring Tools
 
-**34 free online tools — no signup, no ads, no tracking.** Everything runs in your browser. Nothing is uploaded to any server.
+**35 free online tools — no signup, no ads, no tracking.** Everything runs in your browser. Nothing is uploaded to any server.
 
 **[→ Use the tools](https://Aibotflix.github.io/tools/)**
 
@@ -58,11 +58,12 @@
 
 ### AI & Prompting
 **Token Counter** — estimate tokens for GPT, Claude, Gemini models.  
-**Codebase Context Packer** — turn a folder into a Markdown blob for AI prompts.
+**Codebase Context Packer** — turn a folder into a Markdown blob for AI prompts.  
+**AI Prompt Cost Calculator** — see how much a prompt costs across GPT-5.6, Claude Opus 5, Sonnet 5 and Kimi K3.
 
 ---
 
-**[Browse all 34 tools →](https://Aibotflix.github.io/tools/)**
+**[Browse all 35 tools →](https://Aibotflix.github.io/tools/)**
 
 No account. No API keys. No rate limits. Open a page and it works.
 

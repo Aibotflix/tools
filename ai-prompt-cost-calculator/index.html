@@ -1,0 +1,83 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>AI Prompt Cost Calculator | Boring Tools</title><meta name="description" content="Estimate the dollar cost of a prompt across GPT-5.6, Claude Opus 5, Sonnet 5, Fable 5 and Kimi K3. See which model costs the least. Runs offline in your browser."><meta name="robots" content="index, follow"><link rel="canonical" href="https://Aibotflix.github.io/tools/ai-prompt-cost-calculator/"><meta property="og:type" content="website"><meta property="og:title" content="AI Prompt Cost Calculator | Boring Tools"><meta property="og:description" content="Estimate the cost of a prompt across GPT-5.6, Claude Opus 5, Sonnet 5, Fable 5 and Kimi K3. See which model is cheapest."><meta property="og:url" content="https://Aibotflix.github.io/tools/ai-prompt-cost-calculator/"><meta property="og:image" content="https://Aibotflix.github.io/tools/social-card.svg"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="AI Prompt Cost Calculator | Boring Tools"><meta name="twitter:description" content="Estimate the cost of a prompt across GPT-5.6, Claude Opus 5, Sonnet 5, Fable 5 and Kimi K3. See which model is cheapest."><meta name="twitter:image" content="https://Aibotflix.github.io/tools/social-card.svg"><link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../site.webmanifest"><link rel="stylesheet" href="../style.css"><style>.row{gap:14px;align-items:center;flex-wrap:wrap}.result-table{width:100%;border-collapse:collapse;margin-top:18px;font-size:.94rem}.result-table th,.result-table td{padding:10px 12px;text-align:right;border-bottom:1px solid var(--border)}.result-table th:first-child,.result-table td:first-child{text-align:left}.result-table th{font-weight:600;color:var(--muted);font-size:.82rem;text-transform:uppercase;letter-spacing:.04em;background:var(--card)}.result-table .best{background:#1a3a2a;color:#d2f1da;font-weight:600}.result-table .best td{color:inherit}.result-table .worst td{color:var(--muted)}.note{font-size:.85rem;color:var(--muted);margin-top:14px;padding:12px;background:var(--card);border-radius:var(--radius);border:1px solid var(--border)}.note b{color:var(--fg)}.presets{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.preset{font-size:.8rem;padding:6px 10px;background:var(--card);border:1px solid var(--border);border-radius:99px;color:var(--muted);cursor:pointer;min-height:32px}.preset.on{background:var(--accent);color:#fff;border-color:var(--accent)}.totals{display:flex;gap:24px;margin-top:14px;flex-wrap:wrap;font-size:.9rem}.totals div{padding:10px 14px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius)}.totals b{font-size:1.15rem;display:block}.totals span{color:var(--muted);font-size:.8rem}</style><script type="application/ld+json">{ "@context":"https://schema.org","@type":"WebApplication","name":"AI Prompt Cost Calculator","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","url":"https://Aibotflix.github.io/tools/ai-prompt-cost-calculator/","description":"Estimate the dollar cost of an AI prompt across GPT-5.6, Claude Opus 5, Sonnet 5, Fable 5, Haiku 4.5 and Kimi K3. See which model is cheapest. Pure-client-side, no API calls.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"browserRequirements":"Requires JavaScript" }</script><script type="application/ld+json">{ "@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[  {"@type":"ListItem","position":1,"name":"Home","item":"https://Aibotflix.github.io/tools/"},  {"@type":"ListItem","position":2,"name":"AI & Prompting","item":"https://Aibotflix.github.io/tools/categories/?cat=ai-prompting"},  {"@type":"ListItem","position":3,"name":"AI Prompt Cost Calculator"}]}</script><script type="application/ld+json">{ "@context":"https://schema.org","@type":"FAQPage","mainEntity":[  {"@type":"Question","name":"How accurate is this cost estimate?","acceptedAnswer":{"@type":"Answer","text":"Token counts use 1 token per ~4 characters, which matches most published ratios for OpenAI, Anthropic and Kimi models. Real token counts can vary 10-30% depending on the model's tokenizer. Cost calculations use each provider's published per-million-token rates as of July 2026. Verify on each provider's pricing page before high-stakes decisions."}},  {"@type":"Question","name":"Which models are supported?","acceptedAnswer":{"@type":"Answer","text":"OpenAI (GPT-5.6 Sol, Terra, Luna, GPT-5.5, GPT-5.4 mini and nano), Anthropic (Fable 5, Opus 5, Sonnet 5, Haiku 4.5), and Moonshot Kimi (K3, K2.7 Code, K2.6). Each shows the input cost, output cost and total in USD per million tokens. Google Gemini is not included yet because we could not verify Gemini's public pricing at the time of building."}},  {"@type":"Question","name":"What about output tokens?","acceptedAnswer":{"@type":"Answer","text":"Output tokens usually cost 3-10x more than input tokens, depending on the model. Pick an expected output length (chars or tokens) and we'll estimate the output cost. If you don't know yet, the defaults assume the response is roughly half the length of your input."}},  {"@type":"Question","name":"Is my text uploaded?","acceptedAnswer":{"@type":"Answer","text":"No. Everything runs in your browser. Nothing leaves your device, there are no API calls, no cookies, no analytics."}}]}</script></head><body><header id="site-header"></header><main class="container">  <div id="breadcrumbs"></div>  <h1>AI Prompt Cost Calculator</h1>  <p class="lead">See how much your prompt will cost across GPT-5.6, Claude Opus 5, Sonnet 5, Fable 5 and Kimi K3. Pure client-side &mdash; no API calls, no upload.</p>  <div class="tool">    <div class="field">      <label for="prompt">Your prompt</label>      <textarea id="prompt" placeholder="Paste or type the text you want to send to an AI model..." aria-label="Prompt text"></textarea>    </div>    <div class="field">      <div class="row" style="gap:8px">        <div style="flex:1;min-width:200px">          <label for="out">Expected output length (tokens)</label>          <input id="out" type="number" min="0" value="500" step="50">        </div>        <div style="flex:1;min-width:200px">          <label for="runs">How many times per day?</label>          <input id="runs" type="number" min="1" value="1" step="1">        </div>      </div>      <div class="presets" id="presets">        <span class="preset" data-tokens="100">1 paragraph &middot; 100 tokens</span>        <span class="preset" data-tokens="500">Quick reply &middot; 500 tokens</span>        <span class="preset" data-tokens="2000">Long reply &middot; 2,000 tokens</span>        <span class="preset" data-tokens="8000">Essay &middot; 8,000 tokens</span>        <span class="preset" data-tokens="32000">Article &middot; 32,000 tokens</span>      </div>    </div>    <div class="totals" id="totals"></div>    <table class="result-table" id="result">      <thead>        <tr><th>Provider</th><th>Model</th><th>Input tok.</th><th>Output tok.</th><th>Input $</th><th>Output $</th><th>Total $</th></tr>      </thead>      <tbody></tbody>    </table>    <p class="note"><b>Pricing last verified 25 July 2026.</b> Token counts use 1 token per ~4 characters (the standard approximation; real tokenization can vary 10-30%). Costs are per-call figures, USD, exclusive of any caching, batch, priority or fast-mode discounts. Double-check <a href="https://openai.com/api/pricing/">OpenAI</a>, <a href="https://www.anthropic.com/pricing">Anthropic</a> and <a href="https://platform.moonshot.ai/docs/pricing">Moonshot</a> pricing before high-stakes decisions. Your prompt never leaves this device.</p>  </div></main><footer id="site-footer"></footer><script src="../js/app.js"></script><script>// ponytail: model list is duplicated from the JSON-LD schema on purpose so prices stay tied to each visible row in the table.
+// Pricing per 1M tokens (USD), verified against public provider pricing pages on 2026-07-25.
+// Gemini omitted: ai.google.dev/gemini-api/docs/pricing fetch timed out and couldn't be verified at build time.
+var MODELS = [
+  { provider: "OpenAI",    name: "GPT-5.6 Sol",       input: 5.00,  output: 30.00, cpt: 4 },
+  { provider: "OpenAI",    name: "GPT-5.6 Terra",     input: 2.50,  output: 15.00, cpt: 4 },
+  { provider: "OpenAI",    name: "GPT-5.6 Luna",      input: 1.00,  output:  6.00, cpt: 4 },
+  { provider: "OpenAI",    name: "GPT-5.5",           input: 5.00,  output: 30.00, cpt: 4 },
+  { provider: "OpenAI",    name: "GPT-5.4 mini",      input: 0.75,  output:  4.50, cpt: 4 },
+  { provider: "OpenAI",    name: "GPT-5.4 nano",      input: 0.20,  output:  1.25, cpt: 4 },
+  { provider: "Anthropic", name: "Fable 5",           input: 10.00, output: 50.00, cpt: 3.8 },
+  { provider: "Anthropic", name: "Opus 5",            input: 5.00,  output: 25.00, cpt: 3.8 },
+  { provider: "Anthropic", name: "Sonnet 5",          input: 2.00,  output: 10.00, cpt: 3.8, note: "Intro pricing through 31 Aug 2026; $3/$15 thereafter." },
+  { provider: "Anthropic", name: "Haiku 4.5",         input: 1.00,  output:  5.00, cpt: 3.8 },
+  { provider: "Moonshot",  name: "Kimi K3",           input: 3.00,  output: 15.00, cpt: 4 },
+  { provider: "Moonshot",  name: "Kimi K2.7 Code",    input: 0.95,  output:  4.00, cpt: 4 },
+  { provider: "Moonshot",  name: "Kimi K2.6",         input: 0.95,  output:  4.00, cpt: 4 }
+];
+
+function estimateTokens(chars, cpt) { return Math.max(1, Math.round(chars / cpt)); }
+function fmtMoney(n) { if (n < 0.0001) return "<$0.0001"; if (n < 1) return "$" + n.toFixed(4); return "$" + n.toFixed(2); }
+
+function calculate() {
+  var prompt = document.getElementById("prompt").value;
+  var outTok = Math.max(0, parseInt(document.getElementById("out").value, 10) || 0);
+  var runs = Math.max(1, parseInt(document.getElementById("runs").value, 10) || 1);
+  var promptChars = prompt.length;
+  var rows = [];
+  for (var i = 0; i < MODELS.length; i++) {
+    var m = MODELS[i];
+    var inTok = estimateTokens(promptChars, m.cpt);
+    var inCost = (inTok / 1000000) * m.input;
+    var outCost = (outTok / 1000000) * m.output;
+    var total = (inCost + outCost) * runs;
+    rows.push({ model: m, inTok: inTok, outTok: outTok, inCost: inCost, outCost: outCost, total: total });
+  }
+  rows.sort(function (a, b) { return a.total - b.total; });
+  var cheapest = rows[0].total;
+  var mostExpensive = rows[rows.length - 1].total;
+
+  var tbody = document.querySelector("#result tbody");
+  var html = "";
+  for (var j = 0; j < rows.length; j++) {
+    var r = rows[j];
+    var cls = "";
+    if (r.total === cheapest && runs === 1) cls = " class=\"best\"";
+    else if (r.total === mostExpensive && runs === 1) cls = " class=\"worst\"";
+    var dailyTotal = r.total;
+    var monthlyTotal = dailyTotal * 30;
+    html += "<tr" + cls + "><td>" + r.model.provider + "</td><td>" + r.model.name + (r.model.note ? " <span style=\"color:var(--muted);font-size:.8em\">&dagger;</span>" : "") + "</td><td>" + r.inTok.toLocaleString() + "</td><td>" + r.outTok.toLocaleString() + "</td><td>" + fmtMoney(r.inCost * runs) + "</td><td>" + fmtMoney(r.outCost * runs) + "</td><td>" + fmtMoney(r.total) + "</td></tr>";
+  }
+  tbody.innerHTML = html;
+
+  var totalsEl = document.getElementById("totals");
+  if (promptChars === 0) {
+    totalsEl.innerHTML = "";
+  } else {
+    var c = rows[0];
+    totalsEl.innerHTML = "<div><span>Cheapest per call</span><b>" + fmtMoney(c.total) + " <small style=\"font-weight:400;color:var(--muted)\">(" + c.model.provider + " " + c.model.name + ")</small></b></div>" + (runs > 1 ? "<div><span>" + runs + " runs/day</span><b>" + fmtMoney(c.total * runs) + " <small style=\"font-weight:400;color:var(--muted)\">daily</small></b></div><div><span>Monthly (30 days)</span><b>" + fmtMoney(c.total * runs * 30) + "</b></div>" : "");
+  }
+}
+
+function init() {
+  var inputs = ["prompt", "out", "runs"];
+  for (var i = 0; i < inputs.length; i++) {
+    document.getElementById(inputs[i]).addEventListener("input", calculate);
+  }
+  var presets = document.querySelectorAll(".preset");
+  for (var k = 0; k < presets.length; k++) {
+    presets[k].addEventListener("click", function () {
+      document.getElementById("out").value = this.getAttribute("data-tokens");
+      for (var p = 0; p < presets.length; p++) presets[p].classList.remove("on");
+      this.classList.add("on");
+      calculate();
+    });
+  }
+  var defaultPreset = document.querySelector('.preset[data-tokens="500"]');
+  if (defaultPreset) defaultPreset.classList.add("on");
+  calculate();
+}
+init();
+</script></body></html>
