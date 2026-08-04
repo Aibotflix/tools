@@ -34,7 +34,7 @@
     else if (bits < 60) { txt = "Fair"; col = "#e08a2b"; }
     else if (bits < 100) { txt = "Strong"; col = "#3aa757"; }
     else { txt = "Very strong"; col = "#2d9d78"; }
-    bar.style.width = Math.min(100, bits / 128 * 100) + "%";
+    bar.style.transform = "scaleX(" + Math.min(1, bits / 128) + ")";
     bar.style.background = col;
     label.textContent = current ? (txt + " · ~" + Math.round(bits) + " bits of entropy") : "";
   }
@@ -43,7 +43,7 @@
     lenVal.textContent = lenEl.value;
     if (!window.crypto || !crypto.getRandomValues) { out.textContent = "This browser cannot generate secure passwords."; return; }
     var pool = makePool();
-    if (!pool) { current = ""; out.textContent = "Select at least one character set."; bar.style.width = "0"; label.textContent = ""; return; }
+    if (!pool) { current = ""; out.textContent = "Select at least one character set."; bar.style.transform = "scaleX(0)"; label.textContent = ""; return; }
     var n = parseInt(lenEl.value, 10);
     var chars = pool.split("");
     var pw = "";

@@ -8,8 +8,9 @@
 
   // --- Theme color / noindex ---
   function injectMeta() {
-    var m = document.createElement("meta"); m.name = "theme-color"; m.content = "#0a0a0f";
-    document.head.appendChild(m);
+    var light = document.createElement("meta"); light.name = "theme-color"; light.media = "(prefers-color-scheme: light)"; light.content = "#ffffff";
+    var dark = document.createElement("meta"); dark.name = "theme-color"; dark.media = "(prefers-color-scheme: dark)"; dark.content = "#14151a";
+    document.head.appendChild(light); document.head.appendChild(dark);
     if (location.search.indexOf("cat=") !== -1) {
       var r = document.createElement("meta"); r.name = "robots"; r.content = "noindex, follow";
       document.head.appendChild(r);

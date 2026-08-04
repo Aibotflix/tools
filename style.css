@@ -3,6 +3,7 @@
   --fg: #1a1a1a;
   --muted: #666;
   --accent: #2d6cdf;
+  --on-accent: #fff;
   --border: #e3e3e3;
   --card: #fafafa;
   --radius: 10px;
@@ -14,6 +15,7 @@
     --fg: #e8e8ea;
     --muted: #9a9aa2;
     --accent: #6ea8ff;
+    --on-accent: #0f1b2e;
     --border: #2a2b32;
     --card: #1c1d24;
   }
@@ -74,10 +76,10 @@ p, ul { margin: 0 0 1em; }
 
 /* --- Homepage tool cards --- */
 .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; list-style: none; padding: 0; margin: 0; }
-.card { display: block; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; transition: transform .08s ease, border-color .08s ease; height: 150px; box-sizing: border-box; overflow: hidden; }
+.card { display: block; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; transition: transform .08s ease, border-color .08s ease; min-height: 150px; box-sizing: border-box; }
 .card:hover { text-decoration: none; transform: translateY(-2px); border-color: var(--accent); }
 .card .t { font-weight: 600; color: var(--fg); }
-.card .d { color: var(--muted); font-size: .92rem; margin-top: 4px; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
+.card .d { color: var(--muted); font-size: .92rem; margin-top: 4px; display: block; }
 
 /* --- Category cards --- */
 .cat-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; list-style: none; padding: 0; margin: 0; }
@@ -131,7 +133,7 @@ select, input[type="number"] { width: auto; }
 .stats b { display: block; font-size: 1.3rem; }
 .stats span { color: var(--muted); font-size: .82rem; }
 .meter { height: 8px; border-radius: 99px; background: var(--border); overflow: hidden; margin-top: 8px; }
-.meter > i { display: block; height: 100%; width: 0; background: var(--accent); transition: width .15s ease, background .15s ease; }
+.meter > i { display: block; height: 100%; width: 100%; transform: scaleX(0); transform-origin: left; background: var(--accent); transition: transform .15s ease, background .15s ease; }
 .meter-label { font-size: .85rem; color: var(--muted); margin-top: 4px; }
 
 /* --- Footer --- */
